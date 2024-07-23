@@ -1,0 +1,630 @@
+[gd_scene load_steps=2 format=3 uid="uid://lys212f0yftf"]
+
+[ext_resource type="Script" path="res://UI/therbligs/therbligsMgrWin.gd" id="1_cwbcu"]
+
+[node name="动素管理" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -936.0
+offset_bottom = -379.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_cwbcu")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 0
+offset_right = 214.0
+offset_bottom = 269.0
+
+[node name="Header" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+
+[node name="Name" type="Label" parent="VBoxContainer/Header"]
+custom_minimum_size = Vector2(150, 0)
+layout_mode = 2
+text = "动素名称"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ScrollContainer" type="ScrollContainer" parent="VBoxContainer"]
+custom_minimum_size = Vector2(0, 170)
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/ScrollContainer"]
+layout_mode = 2
+
+[node name="ItemList" type="ItemList" parent="VBoxContainer/ScrollContainer/HBoxContainer"]
+custom_minimum_size = Vector2(210, 170)
+layout_mode = 2
+allow_rmb_select = true
+
+[node name="ButtonContainer" type="VBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+
+[node name="add" type="Button" parent="VBoxContainer/ButtonContainer"]
+layout_mode = 2
+text = "添加动素"
+
+[node name="close" type="Button" parent="VBoxContainer/ButtonContainer"]
+layout_mode = 2
+text = "关闭
+"
+
+[node name="AddTherblig" type="Control" parent="."]
+visible = false
+anchors_preset = 0
+
+[node name="SelectType" type="AcceptDialog" parent="AddTherblig"]
+initial_position = 2
+title = "选择动素类型"
+size = Vector2i(248, 88)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="AddTherblig/SelectType"]
+anchors_preset = 10
+anchor_right = 1.0
+offset_left = 8.0
+offset_top = 8.0
+offset_right = -8.0
+offset_bottom = 39.0
+grow_horizontal = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="AddTherblig/SelectType/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Label" type="Label" parent="AddTherblig/SelectType/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+text = "请选择动素类型："
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="type" type="OptionButton" parent="AddTherblig/SelectType/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+item_count = 4
+popup/item_0/text = "相机"
+popup/item_0/id = 0
+popup/item_1/text = "工步"
+popup/item_1/id = 1
+popup/item_2/text = "工具"
+popup/item_2/id = 2
+popup/item_3/text = "模型"
+popup/item_3/id = 3
+
+[node name="AddCameraTb" type="AcceptDialog" parent="AddTherblig"]
+initial_position = 2
+title = "添加动素"
+size = Vector2i(433, 228)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="AddTherblig/AddCameraTb"]
+anchors_preset = 10
+anchor_right = 1.0
+offset_left = 8.0
+offset_top = 8.0
+offset_right = -8.0
+offset_bottom = 179.0
+grow_horizontal = 2
+
+[node name="Name" type="HBoxContainer" parent="AddTherblig/AddCameraTb/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Name" type="Label" parent="AddTherblig/AddCameraTb/VBoxContainer/Name"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+text = "动素名称:"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="NameEdit" type="LineEdit" parent="AddTherblig/AddCameraTb/VBoxContainer/Name"]
+layout_mode = 2
+size_flags_horizontal = 3
+placeholder_text = "请输入名称"
+
+[node name="Priority" type="HBoxContainer" parent="AddTherblig/AddCameraTb/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Priority" type="Label" parent="AddTherblig/AddCameraTb/VBoxContainer/Priority"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+text = "优先级:"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="PriorityEdit" type="SpinBox" parent="AddTherblig/AddCameraTb/VBoxContainer/Priority"]
+layout_mode = 2
+rounded = true
+alignment = 1
+
+[node name="StartPos" type="HBoxContainer" parent="AddTherblig/AddCameraTb/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="StartPos" type="Label" parent="AddTherblig/AddCameraTb/VBoxContainer/StartPos"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+text = "起始位置:"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="startxEdit" type="LineEdit" parent="AddTherblig/AddCameraTb/VBoxContainer/StartPos"]
+layout_mode = 2
+size_flags_horizontal = 3
+placeholder_text = "x"
+
+[node name="startyEdit" type="LineEdit" parent="AddTherblig/AddCameraTb/VBoxContainer/StartPos"]
+layout_mode = 2
+size_flags_horizontal = 3
+placeholder_text = "y"
+
+[node name="startzEdit" type="LineEdit" parent="AddTherblig/AddCameraTb/VBoxContainer/StartPos"]
+layout_mode = 2
+size_flags_horizontal = 3
+placeholder_text = "z"
+
+[node name="EndPos" type="HBoxContainer" parent="AddTherblig/AddCameraTb/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="EndPos" type="Label" parent="AddTherblig/AddCameraTb/VBoxContainer/EndPos"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+text = "终止位置:"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="endxEdit" type="LineEdit" parent="AddTherblig/AddCameraTb/VBoxContainer/EndPos"]
+layout_mode = 2
+size_flags_horizontal = 3
+placeholder_text = "x"
+
+[node name="endyEdit" type="LineEdit" parent="AddTherblig/AddCameraTb/VBoxContainer/EndPos"]
+layout_mode = 2
+size_flags_horizontal = 3
+placeholder_text = "y"
+
+[node name="endzEdit" type="LineEdit" parent="AddTherblig/AddCameraTb/VBoxContainer/EndPos"]
+layout_mode = 2
+size_flags_horizontal = 3
+placeholder_text = "z"
+
+[node name="Time" type="HBoxContainer" parent="AddTherblig/AddCameraTb/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Time" type="Label" parent="AddTherblig/AddCameraTb/VBoxContainer/Time"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+text = "持续时间:"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="timeEdit" type="LineEdit" parent="AddTherblig/AddCameraTb/VBoxContainer/Time"]
+layout_mode = 2
+size_flags_horizontal = 3
+placeholder_text = "请输入时间"
+
+[node name="AddToolTb" type="AcceptDialog" parent="AddTherblig"]
+initial_position = 2
+title = "添加动素"
+size = Vector2i(433, 228)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="AddTherblig/AddToolTb"]
+anchors_preset = 10
+anchor_right = 1.0
+offset_left = 8.0
+offset_top = 8.0
+offset_right = -8.0
+offset_bottom = 179.0
+grow_horizontal = 2
+
+[node name="Name" type="HBoxContainer" parent="AddTherblig/AddToolTb/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Name" type="Label" parent="AddTherblig/AddToolTb/VBoxContainer/Name"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+text = "动素名称:"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="NameEdit" type="LineEdit" parent="AddTherblig/AddToolTb/VBoxContainer/Name"]
+layout_mode = 2
+size_flags_horizontal = 3
+placeholder_text = "请输入名称"
+
+[node name="Priority" type="HBoxContainer" parent="AddTherblig/AddToolTb/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Priority" type="Label" parent="AddTherblig/AddToolTb/VBoxContainer/Priority"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+text = "优先级:"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="PriorityEdit" type="SpinBox" parent="AddTherblig/AddToolTb/VBoxContainer/Priority"]
+layout_mode = 2
+rounded = true
+alignment = 1
+
+[node name="Time" type="HBoxContainer" parent="AddTherblig/AddToolTb/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Time" type="Label" parent="AddTherblig/AddToolTb/VBoxContainer/Time"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+text = "持续时间:"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="timeEdit" type="LineEdit" parent="AddTherblig/AddToolTb/VBoxContainer/Time"]
+layout_mode = 2
+size_flags_horizontal = 3
+placeholder_text = "请输入时间"
+
+[node name="Tool" type="HBoxContainer" parent="AddTherblig/AddToolTb/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Tool" type="Label" parent="AddTherblig/AddToolTb/VBoxContainer/Tool"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+text = "装配资源:"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="toolEdit" type="LineEdit" parent="AddTherblig/AddToolTb/VBoxContainer/Tool"]
+layout_mode = 2
+size_flags_horizontal = 3
+placeholder_text = "请绑定装配资源"
+editable = false
+
+[node name="bound" type="Button" parent="AddTherblig/AddToolTb/VBoxContainer/Tool"]
+layout_mode = 2
+text = "绑定装配资源"
+
+[node name="SelectTool" type="AcceptDialog" parent="AddTherblig/AddToolTb"]
+initial_position = 2
+title = "选择装配资源"
+size = Vector2i(248, 400)
+
+[node name="ItemList" type="ItemList" parent="AddTherblig/AddToolTb/SelectTool"]
+offset_left = 8.0
+offset_top = 8.0
+offset_right = 240.0
+offset_bottom = 351.0
+
+[node name="AddWorkstepTb" type="AcceptDialog" parent="AddTherblig"]
+initial_position = 2
+title = "添加动素"
+size = Vector2i(433, 263)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="AddTherblig/AddWorkstepTb"]
+anchors_preset = 10
+anchor_right = 1.0
+offset_left = 8.0
+offset_top = 8.0
+offset_right = -8.0
+offset_bottom = 214.0
+grow_horizontal = 2
+
+[node name="Name" type="HBoxContainer" parent="AddTherblig/AddWorkstepTb/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Name" type="Label" parent="AddTherblig/AddWorkstepTb/VBoxContainer/Name"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+text = "动素名称:"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="NameEdit" type="LineEdit" parent="AddTherblig/AddWorkstepTb/VBoxContainer/Name"]
+layout_mode = 2
+size_flags_horizontal = 3
+placeholder_text = "请输入名称"
+
+[node name="Priority" type="HBoxContainer" parent="AddTherblig/AddWorkstepTb/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Priority" type="Label" parent="AddTherblig/AddWorkstepTb/VBoxContainer/Priority"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+text = "优先级:"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="PriorityEdit" type="SpinBox" parent="AddTherblig/AddWorkstepTb/VBoxContainer/Priority"]
+layout_mode = 2
+rounded = true
+alignment = 1
+
+[node name="Sign" type="HBoxContainer" parent="AddTherblig/AddWorkstepTb/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Sign" type="Label" parent="AddTherblig/AddWorkstepTb/VBoxContainer/Sign"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+text = "引导类型:"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="SignEdit" type="OptionButton" parent="AddTherblig/AddWorkstepTb/VBoxContainer/Sign"]
+layout_mode = 2
+size_flags_horizontal = 3
+item_count = 2
+popup/item_0/text = "箭头"
+popup/item_0/id = 0
+popup/item_1/text = "球形"
+popup/item_1/id = 1
+
+[node name="StartPos" type="HBoxContainer" parent="AddTherblig/AddWorkstepTb/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="StartPos" type="Label" parent="AddTherblig/AddWorkstepTb/VBoxContainer/StartPos"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+text = "起始位置:"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="startxEdit" type="LineEdit" parent="AddTherblig/AddWorkstepTb/VBoxContainer/StartPos"]
+layout_mode = 2
+size_flags_horizontal = 3
+placeholder_text = "x"
+
+[node name="startyEdit" type="LineEdit" parent="AddTherblig/AddWorkstepTb/VBoxContainer/StartPos"]
+layout_mode = 2
+size_flags_horizontal = 3
+placeholder_text = "y"
+
+[node name="startzEdit" type="LineEdit" parent="AddTherblig/AddWorkstepTb/VBoxContainer/StartPos"]
+layout_mode = 2
+size_flags_horizontal = 3
+placeholder_text = "z"
+
+[node name="EndPos" type="HBoxContainer" parent="AddTherblig/AddWorkstepTb/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="EndPos" type="Label" parent="AddTherblig/AddWorkstepTb/VBoxContainer/EndPos"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+text = "终止位置:"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="endxEdit" type="LineEdit" parent="AddTherblig/AddWorkstepTb/VBoxContainer/EndPos"]
+layout_mode = 2
+size_flags_horizontal = 3
+placeholder_text = "x"
+
+[node name="endyEdit" type="LineEdit" parent="AddTherblig/AddWorkstepTb/VBoxContainer/EndPos"]
+layout_mode = 2
+size_flags_horizontal = 3
+placeholder_text = "y"
+
+[node name="endzEdit" type="LineEdit" parent="AddTherblig/AddWorkstepTb/VBoxContainer/EndPos"]
+layout_mode = 2
+size_flags_horizontal = 3
+placeholder_text = "z"
+
+[node name="Time" type="HBoxContainer" parent="AddTherblig/AddWorkstepTb/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Time" type="Label" parent="AddTherblig/AddWorkstepTb/VBoxContainer/Time"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+text = "持续时间:"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="timeEdit" type="LineEdit" parent="AddTherblig/AddWorkstepTb/VBoxContainer/Time"]
+layout_mode = 2
+size_flags_horizontal = 3
+placeholder_text = "请输入时间"
+
+[node name="AddModelTb" type="AcceptDialog" parent="AddTherblig"]
+initial_position = 2
+title = "添加动素"
+size = Vector2i(433, 263)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="AddTherblig/AddModelTb"]
+anchors_preset = 10
+anchor_right = 1.0
+offset_left = 8.0
+offset_top = 8.0
+offset_right = -8.0
+offset_bottom = 214.0
+grow_horizontal = 2
+
+[node name="Name" type="HBoxContainer" parent="AddTherblig/AddModelTb/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Name" type="Label" parent="AddTherblig/AddModelTb/VBoxContainer/Name"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+text = "动素名称:"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="NameEdit" type="LineEdit" parent="AddTherblig/AddModelTb/VBoxContainer/Name"]
+layout_mode = 2
+size_flags_horizontal = 3
+placeholder_text = "请输入名称"
+
+[node name="Priority" type="HBoxContainer" parent="AddTherblig/AddModelTb/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Priority" type="Label" parent="AddTherblig/AddModelTb/VBoxContainer/Priority"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+text = "优先级:"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="PriorityEdit" type="SpinBox" parent="AddTherblig/AddModelTb/VBoxContainer/Priority"]
+layout_mode = 2
+rounded = true
+alignment = 1
+
+[node name="StartPos" type="HBoxContainer" parent="AddTherblig/AddModelTb/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="StartPos" type="Label" parent="AddTherblig/AddModelTb/VBoxContainer/StartPos"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+text = "起始位置:"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="startxEdit" type="LineEdit" parent="AddTherblig/AddModelTb/VBoxContainer/StartPos"]
+layout_mode = 2
+size_flags_horizontal = 3
+placeholder_text = "x"
+
+[node name="startyEdit" type="LineEdit" parent="AddTherblig/AddModelTb/VBoxContainer/StartPos"]
+layout_mode = 2
+size_flags_horizontal = 3
+placeholder_text = "y"
+
+[node name="startzEdit" type="LineEdit" parent="AddTherblig/AddModelTb/VBoxContainer/StartPos"]
+layout_mode = 2
+size_flags_horizontal = 3
+placeholder_text = "z"
+
+[node name="EndPos" type="HBoxContainer" parent="AddTherblig/AddModelTb/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="EndPos" type="Label" parent="AddTherblig/AddModelTb/VBoxContainer/EndPos"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+text = "终止位置:"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="endxEdit" type="LineEdit" parent="AddTherblig/AddModelTb/VBoxContainer/EndPos"]
+layout_mode = 2
+size_flags_horizontal = 3
+placeholder_text = "x"
+
+[node name="endyEdit" type="LineEdit" parent="AddTherblig/AddModelTb/VBoxContainer/EndPos"]
+layout_mode = 2
+size_flags_horizontal = 3
+placeholder_text = "y"
+
+[node name="endzEdit" type="LineEdit" parent="AddTherblig/AddModelTb/VBoxContainer/EndPos"]
+layout_mode = 2
+size_flags_horizontal = 3
+placeholder_text = "z"
+
+[node name="Time" type="HBoxContainer" parent="AddTherblig/AddModelTb/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Time" type="Label" parent="AddTherblig/AddModelTb/VBoxContainer/Time"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+text = "持续时间:"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="timeEdit" type="LineEdit" parent="AddTherblig/AddModelTb/VBoxContainer/Time"]
+layout_mode = 2
+size_flags_horizontal = 3
+placeholder_text = "请输入时间"
+
+[node name="Model" type="HBoxContainer" parent="AddTherblig/AddModelTb/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Model" type="Label" parent="AddTherblig/AddModelTb/VBoxContainer/Model"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+text = "装配对象:"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ModelEdit" type="LineEdit" parent="AddTherblig/AddModelTb/VBoxContainer/Model"]
+layout_mode = 2
+size_flags_horizontal = 3
+placeholder_text = "请绑定装配对象"
+editable = false
+
+[node name="bound" type="Button" parent="AddTherblig/AddModelTb/VBoxContainer/Model"]
+layout_mode = 2
+text = "绑定装配对象"
+
+[node name="SelectModel" type="AcceptDialog" parent="AddTherblig/AddModelTb"]
+initial_position = 2
+title = "选择装配对象"
+size = Vector2i(248, 400)
+
+[node name="ItemList" type="ItemList" parent="AddTherblig/AddModelTb/SelectModel"]
+offset_left = 8.0
+offset_top = 8.0
+offset_right = 240.0
+offset_bottom = 351.0
+
+[node name="assTbPopWin" type="Panel" parent="."]
+layout_mode = 0
+offset_left = 265.0
+offset_top = 17.0
+offset_right = 415.0
+offset_bottom = 175.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="assTbPopWin"]
+layout_mode = 0
+offset_right = 150.0
+offset_bottom = 120.0
+theme_override_constants/separation = 10
+
+[node name="check" type="Button" parent="assTbPopWin/VBoxContainer"]
+layout_mode = 2
+text = "查看"
+
+[node name="edit" type="Button" parent="assTbPopWin/VBoxContainer"]
+layout_mode = 2
+text = "编辑"
+
+[node name="delete" type="Button" parent="assTbPopWin/VBoxContainer"]
+layout_mode = 2
+text = "删除"
+
+[node name="play" type="Button" parent="assTbPopWin/VBoxContainer"]
+layout_mode = 2
+text = "播放动画"
+
+[connection signal="item_clicked" from="VBoxContainer/ScrollContainer/HBoxContainer/ItemList" to="." method="_on_item_clicked"]
+[connection signal="item_selected" from="VBoxContainer/ScrollContainer/HBoxContainer/ItemList" to="." method="_on_item_selected"]
+[connection signal="pressed" from="VBoxContainer/ButtonContainer/add" to="." method="add_Therblig_select_type"]
+[connection signal="pressed" from="VBoxContainer/ButtonContainer/close" to="." method="close_tbMgr"]
+[connection signal="confirmed" from="AddTherblig/SelectType" to="." method="confirm_select_type"]
+[connection signal="confirmed" from="AddTherblig/AddCameraTb" to="." method="confirm_cameratb"]
+[connection signal="confirmed" from="AddTherblig/AddToolTb" to="." method="confirm_tooltb"]
+[connection signal="pressed" from="AddTherblig/AddToolTb/VBoxContainer/Tool/bound" to="." method="click_bound_to_tool"]
+[connection signal="confirmed" from="AddTherblig/AddToolTb/SelectTool" to="." method="confirm_bound_to_tool"]
+[connection signal="confirmed" from="AddTherblig/AddWorkstepTb" to="." method="confirm_worksteptb"]
+[connection signal="confirmed" from="AddTherblig/AddModelTb" to="." method="confirm_modeltb"]
+[connection signal="pressed" from="AddTherblig/AddModelTb/VBoxContainer/Model/bound" to="." method="click_bound_to_model"]
+[connection signal="confirmed" from="AddTherblig/AddModelTb/SelectModel" to="." method="confirm_bound_to_model"]
+[connection signal="pressed" from="assTbPopWin/VBoxContainer/check" to="." method="check_tb_info"]
+[connection signal="pressed" from="assTbPopWin/VBoxContainer/edit" to="." method="edit_tb_info"]
+[connection signal="pressed" from="assTbPopWin/VBoxContainer/delete" to="." method="delete_assembly_tb"]
+[connection signal="pressed" from="assTbPopWin/VBoxContainer/play" to="." method="play_anima"]

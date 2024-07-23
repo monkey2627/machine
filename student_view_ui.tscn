@@ -1,0 +1,132 @@
+[gd_scene load_steps=9 format=3 uid="uid://swagc6iqa0pr"]
+
+[ext_resource type="Script" path="res://UI/studentViewUI/product.gd" id="1_ulmqq"]
+[ext_resource type="PackedScene" uid="uid://bwe3v4bcagwhe" path="res://UI/studentViewUI/gongyiTree/gongyi_tree.tscn" id="2_dg2a4"]
+[ext_resource type="PackedScene" uid="uid://6mm1o57iocwg" path="res://UI/studentViewUI/assemblyScene/场景切换.tscn" id="3_8ll4v"]
+[ext_resource type="Script" path="res://UI/studentViewUI/Script/StudentTbMgr.gd" id="4_lpnk5"]
+[ext_resource type="Script" path="res://UI/studentViewUI/assemblyProduct/assemblyProduct_student.gd" id="5_5qej1"]
+[ext_resource type="Script" path="res://UI/therbligs/scripts/Camera3D.gd" id="6_sajn8"]
+[ext_resource type="PackedScene" uid="uid://hyf0fj5fcv77" path="res://UI/therbligs/therbligsScene/tbScene.tscn" id="11_3an22"]
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_xgrpk"]
+viewport_path = NodePath("ColorRect/VSplitContainer/HSplitContainer2/HSplitContainer/VBoxContainer/TabContainer/动素显示/SubViewport_3D")
+
+[node name="StudentViewUI" type="Control" node_paths=PackedStringArray("gongyiTreeNode", "assemblyObjectsNode")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_ulmqq")
+gongyiTreeNode = NodePath("ColorRect/VSplitContainer/HSplitContainer2/VBoxContainer/TabContainer/工艺管理/Tree")
+assemblyObjectsNode = NodePath("Data/Model")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 0
+offset_right = 1153.0
+offset_bottom = 647.0
+color = Color(0.0588235, 0.0941176, 0.0627451, 0.729412)
+
+[node name="VSplitContainer" type="VSplitContainer" parent="ColorRect"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="ColorRect/VSplitContainer"]
+custom_minimum_size = Vector2(0, 40)
+layout_mode = 2
+
+[node name="load" type="Button" parent="ColorRect/VSplitContainer/HBoxContainer"]
+layout_mode = 2
+text = "导入资源"
+
+[node name="HSplitContainer2" type="HSplitContainer" parent="ColorRect/VSplitContainer"]
+layout_mode = 2
+split_offset = 200
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ColorRect/VSplitContainer/HSplitContainer2"]
+custom_minimum_size = Vector2(0, 300)
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="TabContainer" type="TabContainer" parent="ColorRect/VSplitContainer/HSplitContainer2/VBoxContainer"]
+custom_minimum_size = Vector2(300, 300)
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="工艺管理" type="BoxContainer" parent="ColorRect/VSplitContainer/HSplitContainer2/VBoxContainer/TabContainer"]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Tree" parent="ColorRect/VSplitContainer/HSplitContainer2/VBoxContainer/TabContainer/工艺管理" instance=ExtResource("2_dg2a4")]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="场景切换" parent="ColorRect/VSplitContainer/HSplitContainer2/VBoxContainer/TabContainer" instance=ExtResource("3_8ll4v")]
+layout_mode = 2
+
+[node name="HSplitContainer" type="HSplitContainer" parent="ColorRect/VSplitContainer/HSplitContainer2"]
+layout_mode = 2
+split_offset = 700
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ColorRect/VSplitContainer/HSplitContainer2/HSplitContainer"]
+layout_mode = 2
+
+[node name="TabContainer" type="TabContainer" parent="ColorRect/VSplitContainer/HSplitContainer2/HSplitContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="动素显示" type="VBoxContainer" parent="ColorRect/VSplitContainer/HSplitContainer2/HSplitContainer/VBoxContainer/TabContainer"]
+layout_mode = 2
+script = ExtResource("4_lpnk5")
+
+[node name="SubViewport" type="SubViewport" parent="ColorRect/VSplitContainer/HSplitContainer2/HSplitContainer/VBoxContainer/TabContainer/动素显示"]
+use_xr = true
+handle_input_locally = false
+msaa_3d = 3
+screen_space_aa = 1
+size = Vector2i(0, 0)
+render_target_update_mode = 4
+
+[node name="tbScene" parent="ColorRect/VSplitContainer/HSplitContainer2/HSplitContainer/VBoxContainer/TabContainer/动素显示/SubViewport" instance=ExtResource("11_3an22")]
+
+[node name="SubViewport_3D" type="SubViewport" parent="ColorRect/VSplitContainer/HSplitContainer2/HSplitContainer/VBoxContainer/TabContainer/动素显示"]
+handle_input_locally = false
+msaa_3d = 3
+screen_space_aa = 1
+size = Vector2i(1000, 600)
+render_target_update_mode = 4
+
+[node name="Node3D" type="Node3D" parent="ColorRect/VSplitContainer/HSplitContainer2/HSplitContainer/VBoxContainer/TabContainer/动素显示/SubViewport_3D"]
+
+[node name="Camera3D" type="Camera3D" parent="ColorRect/VSplitContainer/HSplitContainer2/HSplitContainer/VBoxContainer/TabContainer/动素显示/SubViewport_3D/Node3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.9, 0.3)
+script = ExtResource("6_sajn8")
+
+[node name="VSplitContainer" type="VSplitContainer" parent="ColorRect/VSplitContainer/HSplitContainer2/HSplitContainer/VBoxContainer/TabContainer/动素显示"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="ScrollContainer" type="ScrollContainer" parent="ColorRect/VSplitContainer/HSplitContainer2/HSplitContainer/VBoxContainer/TabContainer/动素显示/VSplitContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="TextureRect" type="TextureRect" parent="ColorRect/VSplitContainer/HSplitContainer2/HSplitContainer/VBoxContainer/TabContainer/动素显示/VSplitContainer/ScrollContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture = SubResource("ViewportTexture_xgrpk")
+expand_mode = 5
+stretch_mode = 3
+
+[node name="Data" type="Node" parent="."]
+
+[node name="Model" type="Node" parent="Data"]
+script = ExtResource("5_5qej1")
+
+[connection signal="pressed" from="ColorRect/VSplitContainer/HBoxContainer/load" to="." method="load_product"]

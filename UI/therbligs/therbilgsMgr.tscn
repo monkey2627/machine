@@ -1,0 +1,629 @@
+[gd_scene load_steps=2 format=3 uid="uid://bk0ix3hsil433"]
+
+[ext_resource type="Script" path="res://UI/therbligs/therbligsMgrWin_merge.gd" id="1_2xyg3"]
+
+[node name="动素管理" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+
+[node name="VboxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_2xyg3")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VboxContainer"]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+
+[node name="PlayAnima" type="Button" parent="VboxContainer/HBoxContainer"]
+layout_mode = 2
+text = "播放装配动画"
+
+[node name="Button" type="Button" parent="VboxContainer/HBoxContainer"]
+layout_mode = 2
+text = "清除场景"
+
+[node name="ListAndButton" type="HBoxContainer" parent="VboxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="ScrollContainer" type="ScrollContainer" parent="VboxContainer/ListAndButton"]
+custom_minimum_size = Vector2(0, 170)
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VboxContainer/ListAndButton/ScrollContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="ColorRect" type="ColorRect" parent="VboxContainer/ListAndButton/ScrollContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+color = Color(0.203922, 0.423529, 0.501961, 1)
+
+[node name="ItemList" type="ItemList" parent="VboxContainer/ListAndButton/ScrollContainer/HBoxContainer/ColorRect"]
+custom_minimum_size = Vector2(210, 170)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+allow_rmb_select = true
+
+[node name="assTbPopWin" type="Panel" parent="VboxContainer/ListAndButton/ScrollContainer/HBoxContainer/ColorRect"]
+visible = false
+top_level = true
+layout_mode = 2
+offset_right = 150.0
+offset_bottom = 160.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VboxContainer/ListAndButton/ScrollContainer/HBoxContainer/ColorRect/assTbPopWin"]
+layout_mode = 0
+offset_right = 150.0
+offset_bottom = 120.0
+theme_override_constants/separation = 10
+
+[node name="check" type="Button" parent="VboxContainer/ListAndButton/ScrollContainer/HBoxContainer/ColorRect/assTbPopWin/VBoxContainer"]
+layout_mode = 2
+text = "查看"
+
+[node name="edit" type="Button" parent="VboxContainer/ListAndButton/ScrollContainer/HBoxContainer/ColorRect/assTbPopWin/VBoxContainer"]
+layout_mode = 2
+text = "编辑"
+
+[node name="delete" type="Button" parent="VboxContainer/ListAndButton/ScrollContainer/HBoxContainer/ColorRect/assTbPopWin/VBoxContainer"]
+layout_mode = 2
+text = "删除"
+
+[node name="play" type="Button" parent="VboxContainer/ListAndButton/ScrollContainer/HBoxContainer/ColorRect/assTbPopWin/VBoxContainer"]
+layout_mode = 2
+text = "播放动画"
+
+[node name="SelectType" type="AcceptDialog" parent="VboxContainer/ListAndButton"]
+initial_position = 2
+title = "选择动素类型"
+size = Vector2i(248, 88)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VboxContainer/ListAndButton/SelectType"]
+anchors_preset = 10
+anchor_right = 1.0
+offset_left = 8.0
+offset_top = 8.0
+offset_right = -8.0
+offset_bottom = 39.0
+grow_horizontal = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VboxContainer/ListAndButton/SelectType/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Label" type="Label" parent="VboxContainer/ListAndButton/SelectType/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+text = "请选择动素类型："
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="type" type="OptionButton" parent="VboxContainer/ListAndButton/SelectType/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+item_count = 4
+popup/item_0/text = "相机"
+popup/item_0/id = 0
+popup/item_1/text = "工步"
+popup/item_1/id = 1
+popup/item_2/text = "工具"
+popup/item_2/id = 2
+popup/item_3/text = "模型"
+popup/item_3/id = 3
+
+[node name="AddCameraTb" type="AcceptDialog" parent="VboxContainer/ListAndButton"]
+initial_position = 2
+title = "添加动素"
+size = Vector2i(433, 228)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VboxContainer/ListAndButton/AddCameraTb"]
+anchors_preset = 10
+anchor_right = 1.0
+offset_left = 8.0
+offset_top = 8.0
+offset_right = -8.0
+offset_bottom = 179.0
+grow_horizontal = 2
+
+[node name="Name" type="HBoxContainer" parent="VboxContainer/ListAndButton/AddCameraTb/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Name" type="Label" parent="VboxContainer/ListAndButton/AddCameraTb/VBoxContainer/Name"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+text = "动素名称:"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="NameEdit" type="LineEdit" parent="VboxContainer/ListAndButton/AddCameraTb/VBoxContainer/Name"]
+layout_mode = 2
+size_flags_horizontal = 3
+placeholder_text = "请输入名称"
+
+[node name="Priority" type="HBoxContainer" parent="VboxContainer/ListAndButton/AddCameraTb/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Priority" type="Label" parent="VboxContainer/ListAndButton/AddCameraTb/VBoxContainer/Priority"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+text = "优先级:"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="PriorityEdit" type="SpinBox" parent="VboxContainer/ListAndButton/AddCameraTb/VBoxContainer/Priority"]
+layout_mode = 2
+rounded = true
+alignment = 1
+
+[node name="StartPos" type="HBoxContainer" parent="VboxContainer/ListAndButton/AddCameraTb/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="StartPos" type="Label" parent="VboxContainer/ListAndButton/AddCameraTb/VBoxContainer/StartPos"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+text = "起始位置:"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="startxEdit" type="LineEdit" parent="VboxContainer/ListAndButton/AddCameraTb/VBoxContainer/StartPos"]
+layout_mode = 2
+size_flags_horizontal = 3
+placeholder_text = "x"
+
+[node name="startyEdit" type="LineEdit" parent="VboxContainer/ListAndButton/AddCameraTb/VBoxContainer/StartPos"]
+layout_mode = 2
+size_flags_horizontal = 3
+placeholder_text = "y"
+
+[node name="startzEdit" type="LineEdit" parent="VboxContainer/ListAndButton/AddCameraTb/VBoxContainer/StartPos"]
+layout_mode = 2
+size_flags_horizontal = 3
+placeholder_text = "z"
+
+[node name="EndPos" type="HBoxContainer" parent="VboxContainer/ListAndButton/AddCameraTb/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="EndPos" type="Label" parent="VboxContainer/ListAndButton/AddCameraTb/VBoxContainer/EndPos"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+text = "终止位置:"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="endxEdit" type="LineEdit" parent="VboxContainer/ListAndButton/AddCameraTb/VBoxContainer/EndPos"]
+layout_mode = 2
+size_flags_horizontal = 3
+placeholder_text = "x"
+
+[node name="endyEdit" type="LineEdit" parent="VboxContainer/ListAndButton/AddCameraTb/VBoxContainer/EndPos"]
+layout_mode = 2
+size_flags_horizontal = 3
+placeholder_text = "y"
+
+[node name="endzEdit" type="LineEdit" parent="VboxContainer/ListAndButton/AddCameraTb/VBoxContainer/EndPos"]
+layout_mode = 2
+size_flags_horizontal = 3
+placeholder_text = "z"
+
+[node name="Time" type="HBoxContainer" parent="VboxContainer/ListAndButton/AddCameraTb/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Time" type="Label" parent="VboxContainer/ListAndButton/AddCameraTb/VBoxContainer/Time"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+text = "持续时间:"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="timeEdit" type="LineEdit" parent="VboxContainer/ListAndButton/AddCameraTb/VBoxContainer/Time"]
+layout_mode = 2
+size_flags_horizontal = 3
+placeholder_text = "请输入时间"
+
+[node name="AddToolTb" type="AcceptDialog" parent="VboxContainer/ListAndButton"]
+initial_position = 2
+title = "添加动素"
+size = Vector2i(433, 228)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VboxContainer/ListAndButton/AddToolTb"]
+anchors_preset = 10
+anchor_right = 1.0
+offset_left = 8.0
+offset_top = 8.0
+offset_right = -8.0
+offset_bottom = 179.0
+grow_horizontal = 2
+
+[node name="Name" type="HBoxContainer" parent="VboxContainer/ListAndButton/AddToolTb/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Name" type="Label" parent="VboxContainer/ListAndButton/AddToolTb/VBoxContainer/Name"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+text = "动素名称:"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="NameEdit" type="LineEdit" parent="VboxContainer/ListAndButton/AddToolTb/VBoxContainer/Name"]
+layout_mode = 2
+size_flags_horizontal = 3
+placeholder_text = "请输入名称"
+
+[node name="Priority" type="HBoxContainer" parent="VboxContainer/ListAndButton/AddToolTb/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Priority" type="Label" parent="VboxContainer/ListAndButton/AddToolTb/VBoxContainer/Priority"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+text = "优先级:"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="PriorityEdit" type="SpinBox" parent="VboxContainer/ListAndButton/AddToolTb/VBoxContainer/Priority"]
+layout_mode = 2
+rounded = true
+alignment = 1
+
+[node name="Time" type="HBoxContainer" parent="VboxContainer/ListAndButton/AddToolTb/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Time" type="Label" parent="VboxContainer/ListAndButton/AddToolTb/VBoxContainer/Time"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+text = "持续时间:"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="timeEdit" type="LineEdit" parent="VboxContainer/ListAndButton/AddToolTb/VBoxContainer/Time"]
+layout_mode = 2
+size_flags_horizontal = 3
+placeholder_text = "请输入时间"
+
+[node name="Tool" type="HBoxContainer" parent="VboxContainer/ListAndButton/AddToolTb/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Tool" type="Label" parent="VboxContainer/ListAndButton/AddToolTb/VBoxContainer/Tool"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+text = "装配资源:"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="toolEdit" type="LineEdit" parent="VboxContainer/ListAndButton/AddToolTb/VBoxContainer/Tool"]
+layout_mode = 2
+size_flags_horizontal = 3
+placeholder_text = "请绑定装配资源"
+editable = false
+
+[node name="bound" type="Button" parent="VboxContainer/ListAndButton/AddToolTb/VBoxContainer/Tool"]
+layout_mode = 2
+text = "绑定装配资源"
+
+[node name="SelectTool" type="AcceptDialog" parent="VboxContainer/ListAndButton/AddToolTb"]
+initial_position = 2
+title = "选择装配资源"
+size = Vector2i(248, 400)
+
+[node name="ItemList" type="ItemList" parent="VboxContainer/ListAndButton/AddToolTb/SelectTool"]
+offset_left = 8.0
+offset_top = 8.0
+offset_right = 240.0
+offset_bottom = 351.0
+
+[node name="AddWorkstepTb" type="AcceptDialog" parent="VboxContainer/ListAndButton"]
+initial_position = 2
+title = "添加动素"
+size = Vector2i(433, 263)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VboxContainer/ListAndButton/AddWorkstepTb"]
+anchors_preset = 10
+anchor_right = 1.0
+offset_left = 8.0
+offset_top = 8.0
+offset_right = -8.0
+offset_bottom = 214.0
+grow_horizontal = 2
+
+[node name="Name" type="HBoxContainer" parent="VboxContainer/ListAndButton/AddWorkstepTb/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Name" type="Label" parent="VboxContainer/ListAndButton/AddWorkstepTb/VBoxContainer/Name"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+text = "动素名称:"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="NameEdit" type="LineEdit" parent="VboxContainer/ListAndButton/AddWorkstepTb/VBoxContainer/Name"]
+layout_mode = 2
+size_flags_horizontal = 3
+placeholder_text = "请输入名称"
+
+[node name="Priority" type="HBoxContainer" parent="VboxContainer/ListAndButton/AddWorkstepTb/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Priority" type="Label" parent="VboxContainer/ListAndButton/AddWorkstepTb/VBoxContainer/Priority"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+text = "优先级:"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="PriorityEdit" type="SpinBox" parent="VboxContainer/ListAndButton/AddWorkstepTb/VBoxContainer/Priority"]
+layout_mode = 2
+rounded = true
+alignment = 1
+
+[node name="Sign" type="HBoxContainer" parent="VboxContainer/ListAndButton/AddWorkstepTb/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Sign" type="Label" parent="VboxContainer/ListAndButton/AddWorkstepTb/VBoxContainer/Sign"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+text = "引导类型:"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="SignEdit" type="OptionButton" parent="VboxContainer/ListAndButton/AddWorkstepTb/VBoxContainer/Sign"]
+layout_mode = 2
+size_flags_horizontal = 3
+item_count = 2
+popup/item_0/text = "箭头"
+popup/item_0/id = 0
+popup/item_1/text = "球形"
+popup/item_1/id = 1
+
+[node name="StartPos" type="HBoxContainer" parent="VboxContainer/ListAndButton/AddWorkstepTb/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="StartPos" type="Label" parent="VboxContainer/ListAndButton/AddWorkstepTb/VBoxContainer/StartPos"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+text = "起始位置:"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="startxEdit" type="LineEdit" parent="VboxContainer/ListAndButton/AddWorkstepTb/VBoxContainer/StartPos"]
+layout_mode = 2
+size_flags_horizontal = 3
+placeholder_text = "x"
+
+[node name="startyEdit" type="LineEdit" parent="VboxContainer/ListAndButton/AddWorkstepTb/VBoxContainer/StartPos"]
+layout_mode = 2
+size_flags_horizontal = 3
+placeholder_text = "y"
+
+[node name="startzEdit" type="LineEdit" parent="VboxContainer/ListAndButton/AddWorkstepTb/VBoxContainer/StartPos"]
+layout_mode = 2
+size_flags_horizontal = 3
+placeholder_text = "z"
+
+[node name="EndPos" type="HBoxContainer" parent="VboxContainer/ListAndButton/AddWorkstepTb/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="EndPos" type="Label" parent="VboxContainer/ListAndButton/AddWorkstepTb/VBoxContainer/EndPos"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+text = "终止位置:"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="endxEdit" type="LineEdit" parent="VboxContainer/ListAndButton/AddWorkstepTb/VBoxContainer/EndPos"]
+layout_mode = 2
+size_flags_horizontal = 3
+placeholder_text = "x"
+
+[node name="endyEdit" type="LineEdit" parent="VboxContainer/ListAndButton/AddWorkstepTb/VBoxContainer/EndPos"]
+layout_mode = 2
+size_flags_horizontal = 3
+placeholder_text = "y"
+
+[node name="endzEdit" type="LineEdit" parent="VboxContainer/ListAndButton/AddWorkstepTb/VBoxContainer/EndPos"]
+layout_mode = 2
+size_flags_horizontal = 3
+placeholder_text = "z"
+
+[node name="Time" type="HBoxContainer" parent="VboxContainer/ListAndButton/AddWorkstepTb/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Time" type="Label" parent="VboxContainer/ListAndButton/AddWorkstepTb/VBoxContainer/Time"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+text = "持续时间:"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="timeEdit" type="LineEdit" parent="VboxContainer/ListAndButton/AddWorkstepTb/VBoxContainer/Time"]
+layout_mode = 2
+size_flags_horizontal = 3
+placeholder_text = "请输入时间"
+
+[node name="AddModelTb" type="AcceptDialog" parent="VboxContainer/ListAndButton"]
+initial_position = 2
+title = "添加动素"
+size = Vector2i(433, 263)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VboxContainer/ListAndButton/AddModelTb"]
+anchors_preset = 10
+anchor_right = 1.0
+offset_left = 8.0
+offset_top = 8.0
+offset_right = -8.0
+offset_bottom = 214.0
+grow_horizontal = 2
+
+[node name="Name" type="HBoxContainer" parent="VboxContainer/ListAndButton/AddModelTb/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Name" type="Label" parent="VboxContainer/ListAndButton/AddModelTb/VBoxContainer/Name"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+text = "动素名称:"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="NameEdit" type="LineEdit" parent="VboxContainer/ListAndButton/AddModelTb/VBoxContainer/Name"]
+layout_mode = 2
+size_flags_horizontal = 3
+placeholder_text = "请输入名称"
+
+[node name="Priority" type="HBoxContainer" parent="VboxContainer/ListAndButton/AddModelTb/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Priority" type="Label" parent="VboxContainer/ListAndButton/AddModelTb/VBoxContainer/Priority"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+text = "优先级:"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="PriorityEdit" type="SpinBox" parent="VboxContainer/ListAndButton/AddModelTb/VBoxContainer/Priority"]
+layout_mode = 2
+rounded = true
+alignment = 1
+
+[node name="StartPos" type="HBoxContainer" parent="VboxContainer/ListAndButton/AddModelTb/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="StartPos" type="Label" parent="VboxContainer/ListAndButton/AddModelTb/VBoxContainer/StartPos"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+text = "起始位置:"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="startxEdit" type="LineEdit" parent="VboxContainer/ListAndButton/AddModelTb/VBoxContainer/StartPos"]
+layout_mode = 2
+size_flags_horizontal = 3
+placeholder_text = "x"
+
+[node name="startyEdit" type="LineEdit" parent="VboxContainer/ListAndButton/AddModelTb/VBoxContainer/StartPos"]
+layout_mode = 2
+size_flags_horizontal = 3
+placeholder_text = "y"
+
+[node name="startzEdit" type="LineEdit" parent="VboxContainer/ListAndButton/AddModelTb/VBoxContainer/StartPos"]
+layout_mode = 2
+size_flags_horizontal = 3
+placeholder_text = "z"
+
+[node name="EndPos" type="HBoxContainer" parent="VboxContainer/ListAndButton/AddModelTb/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="EndPos" type="Label" parent="VboxContainer/ListAndButton/AddModelTb/VBoxContainer/EndPos"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+text = "终止位置:"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="endxEdit" type="LineEdit" parent="VboxContainer/ListAndButton/AddModelTb/VBoxContainer/EndPos"]
+layout_mode = 2
+size_flags_horizontal = 3
+placeholder_text = "x"
+
+[node name="endyEdit" type="LineEdit" parent="VboxContainer/ListAndButton/AddModelTb/VBoxContainer/EndPos"]
+layout_mode = 2
+size_flags_horizontal = 3
+placeholder_text = "y"
+
+[node name="endzEdit" type="LineEdit" parent="VboxContainer/ListAndButton/AddModelTb/VBoxContainer/EndPos"]
+layout_mode = 2
+size_flags_horizontal = 3
+placeholder_text = "z"
+
+[node name="Time" type="HBoxContainer" parent="VboxContainer/ListAndButton/AddModelTb/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Time" type="Label" parent="VboxContainer/ListAndButton/AddModelTb/VBoxContainer/Time"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+text = "持续时间:"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="timeEdit" type="LineEdit" parent="VboxContainer/ListAndButton/AddModelTb/VBoxContainer/Time"]
+layout_mode = 2
+size_flags_horizontal = 3
+placeholder_text = "请输入时间"
+
+[node name="Model" type="HBoxContainer" parent="VboxContainer/ListAndButton/AddModelTb/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Model" type="Label" parent="VboxContainer/ListAndButton/AddModelTb/VBoxContainer/Model"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+text = "装配对象:"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ModelEdit" type="LineEdit" parent="VboxContainer/ListAndButton/AddModelTb/VBoxContainer/Model"]
+layout_mode = 2
+size_flags_horizontal = 3
+placeholder_text = "请绑定装配对象"
+editable = false
+
+[node name="bound" type="Button" parent="VboxContainer/ListAndButton/AddModelTb/VBoxContainer/Model"]
+layout_mode = 2
+text = "绑定装配对象"
+
+[node name="SelectModel" type="AcceptDialog" parent="VboxContainer/ListAndButton/AddModelTb"]
+initial_position = 2
+title = "选择装配对象"
+size = Vector2i(248, 400)
+
+[node name="ItemList" type="ItemList" parent="VboxContainer/ListAndButton/AddModelTb/SelectModel"]
+offset_left = 8.0
+offset_top = 8.0
+offset_right = 240.0
+offset_bottom = 351.0
+
+[connection signal="item_clicked" from="VboxContainer/ListAndButton/ScrollContainer/HBoxContainer/ColorRect/ItemList" to="VboxContainer" method="_on_item_clicked"]
+[connection signal="item_selected" from="VboxContainer/ListAndButton/ScrollContainer/HBoxContainer/ColorRect/ItemList" to="VboxContainer" method="_on_item_selected"]
+[connection signal="pressed" from="VboxContainer/ListAndButton/ScrollContainer/HBoxContainer/ColorRect/assTbPopWin/VBoxContainer/check" to="VboxContainer" method="check_tb_info"]
+[connection signal="pressed" from="VboxContainer/ListAndButton/ScrollContainer/HBoxContainer/ColorRect/assTbPopWin/VBoxContainer/edit" to="VboxContainer" method="edit_tb_info"]
+[connection signal="pressed" from="VboxContainer/ListAndButton/ScrollContainer/HBoxContainer/ColorRect/assTbPopWin/VBoxContainer/delete" to="VboxContainer" method="delete_assembly_tb"]
+[connection signal="pressed" from="VboxContainer/ListAndButton/ScrollContainer/HBoxContainer/ColorRect/assTbPopWin/VBoxContainer/play" to="VboxContainer" method="play_anima"]
+[connection signal="confirmed" from="VboxContainer/ListAndButton/SelectType" to="VboxContainer" method="confirm_select_type"]
+[connection signal="confirmed" from="VboxContainer/ListAndButton/AddCameraTb" to="VboxContainer" method="confirm_cameratb"]
+[connection signal="confirmed" from="VboxContainer/ListAndButton/AddToolTb" to="VboxContainer" method="confirm_tooltb"]
+[connection signal="pressed" from="VboxContainer/ListAndButton/AddToolTb/VBoxContainer/Tool/bound" to="VboxContainer" method="click_bound_to_tool"]
+[connection signal="confirmed" from="VboxContainer/ListAndButton/AddToolTb/SelectTool" to="VboxContainer" method="confirm_bound_to_tool"]
+[connection signal="confirmed" from="VboxContainer/ListAndButton/AddWorkstepTb" to="VboxContainer" method="confirm_worksteptb"]
+[connection signal="confirmed" from="VboxContainer/ListAndButton/AddModelTb" to="VboxContainer" method="confirm_modeltb"]
+[connection signal="pressed" from="VboxContainer/ListAndButton/AddModelTb/VBoxContainer/Model/bound" to="VboxContainer" method="click_bound_to_model"]
+[connection signal="confirmed" from="VboxContainer/ListAndButton/AddModelTb/SelectModel" to="VboxContainer" method="confirm_bound_to_model"]

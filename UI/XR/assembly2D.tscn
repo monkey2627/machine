@@ -1,0 +1,219 @@
+[gd_scene load_steps=35 format=3 uid="uid://bcpu7gwwenfq8"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_pm0mk"]
+content_margin_left = 50.0
+content_margin_top = 3.0
+content_margin_right = 50.0
+content_margin_bottom = 3.0
+bg_color = Color(0.6, 0.6, 0.6, 0.00392157)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8ltn5"]
+bg_color = Color(0, 1, 0, 1)
+draw_center = false
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(0, 1, 0, 1)
+
+[sub_resource type="Gradient" id="Gradient_0obvo"]
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_ve4tm"]
+gradient = SubResource("Gradient_0obvo")
+
+[sub_resource type="Gradient" id="Gradient_lip2p"]
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_623mg"]
+gradient = SubResource("Gradient_lip2p")
+
+[sub_resource type="Gradient" id="Gradient_4bj8l"]
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_f50hg"]
+gradient = SubResource("Gradient_4bj8l")
+
+[sub_resource type="Gradient" id="Gradient_1x0da"]
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_w2f4f"]
+gradient = SubResource("Gradient_1x0da")
+
+[sub_resource type="Gradient" id="Gradient_kmbfm"]
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_xh2nt"]
+gradient = SubResource("Gradient_kmbfm")
+
+[sub_resource type="Gradient" id="Gradient_dc4hf"]
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_i4vfo"]
+gradient = SubResource("Gradient_dc4hf")
+
+[sub_resource type="Gradient" id="Gradient_y61d0"]
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_cli3p"]
+gradient = SubResource("Gradient_y61d0")
+
+[sub_resource type="Gradient" id="Gradient_ggo8d"]
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_gl1ys"]
+gradient = SubResource("Gradient_ggo8d")
+
+[sub_resource type="Gradient" id="Gradient_22cg4"]
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_y1ss4"]
+gradient = SubResource("Gradient_22cg4")
+
+[sub_resource type="Gradient" id="Gradient_l50tn"]
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_t2ia0"]
+gradient = SubResource("Gradient_l50tn")
+
+[sub_resource type="Gradient" id="Gradient_6ed8m"]
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_m3g3d"]
+gradient = SubResource("Gradient_6ed8m")
+
+[sub_resource type="Gradient" id="Gradient_bnnpt"]
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_ye6x0"]
+gradient = SubResource("Gradient_bnnpt")
+
+[sub_resource type="Gradient" id="Gradient_viote"]
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_su8hs"]
+gradient = SubResource("Gradient_viote")
+
+[sub_resource type="Gradient" id="Gradient_mhai2"]
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_xkxmw"]
+gradient = SubResource("Gradient_mhai2")
+
+[sub_resource type="Gradient" id="Gradient_yt5e2"]
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_lwb3b"]
+gradient = SubResource("Gradient_yt5e2")
+
+[sub_resource type="Gradient" id="Gradient_qgpl7"]
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_0ajec"]
+gradient = SubResource("Gradient_qgpl7")
+
+[node name="Control" type="Node2D"]
+
+[node name="Panel" type="Panel" parent="."]
+offset_right = 1151.0
+offset_bottom = 644.0
+
+[node name="clear_pipe" type="Button" parent="Panel"]
+visible = false
+layout_mode = 0
+offset_left = 60.0
+offset_top = 558.0
+offset_right = 161.0
+offset_bottom = 590.0
+text = "清除软管"
+
+[node name="pipe" type="Button" parent="Panel"]
+visible = false
+layout_mode = 0
+offset_left = 190.0
+offset_top = 558.0
+offset_right = 291.0
+offset_bottom = 590.0
+text = "软管仿真"
+
+[node name="pause" type="Button" parent="Panel"]
+visible = false
+layout_mode = 0
+offset_left = 372.0
+offset_top = 558.0
+offset_right = 473.0
+offset_bottom = 590.0
+text = "暂停"
+
+[node name="continue" type="Button" parent="Panel"]
+visible = false
+layout_mode = 0
+offset_left = 534.0
+offset_top = 556.0
+offset_right = 635.0
+offset_bottom = 588.0
+text = "开始
+"
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Panel"]
+layout_mode = 0
+offset_right = 1151.0
+offset_bottom = 654.0
+
+[node name="ItemList" type="ItemList" parent="Panel/VBoxContainer"]
+custom_minimum_size = Vector2(1151, 540)
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+theme_override_styles/panel = SubResource("StyleBoxFlat_pm0mk")
+theme_override_styles/selected = SubResource("StyleBoxFlat_8ltn5")
+theme_override_styles/selected_focus = SubResource("StyleBoxFlat_8ltn5")
+max_text_lines = 4
+item_count = 16
+max_columns = 5
+fixed_column_width = 195
+icon_mode = 0
+fixed_icon_size = Vector2i(128, 128)
+item_0/text = "test"
+item_0/icon = SubResource("GradientTexture2D_ve4tm")
+item_1/text = "test"
+item_1/icon = SubResource("GradientTexture2D_623mg")
+item_2/text = "test"
+item_2/icon = SubResource("GradientTexture2D_f50hg")
+item_3/text = "test"
+item_3/icon = SubResource("GradientTexture2D_w2f4f")
+item_4/text = "test"
+item_4/icon = SubResource("GradientTexture2D_xh2nt")
+item_5/text = "test"
+item_5/icon = SubResource("GradientTexture2D_i4vfo")
+item_6/text = "test"
+item_6/icon = SubResource("GradientTexture2D_cli3p")
+item_7/text = "test"
+item_7/icon = SubResource("GradientTexture2D_gl1ys")
+item_8/text = "test"
+item_8/icon = SubResource("GradientTexture2D_y1ss4")
+item_9/text = "test"
+item_9/icon = SubResource("GradientTexture2D_t2ia0")
+item_10/text = "test"
+item_10/icon = SubResource("GradientTexture2D_m3g3d")
+item_11/text = "test"
+item_11/icon = SubResource("GradientTexture2D_ye6x0")
+item_12/text = "test"
+item_12/icon = SubResource("GradientTexture2D_su8hs")
+item_13/text = "test"
+item_13/icon = SubResource("GradientTexture2D_xkxmw")
+item_14/text = "test"
+item_14/icon = SubResource("GradientTexture2D_lwb3b")
+item_15/text = "test"
+item_15/icon = SubResource("GradientTexture2D_0ajec")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Panel/VBoxContainer"]
+layout_mode = 2
+
+[node name="BoxContainer" type="BoxContainer" parent="Panel/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(50, 0)
+layout_mode = 2
+
+[node name="processbar" type="HBoxContainer" parent="Panel/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+
+[node name="percentage" type="Label" parent="Panel/VBoxContainer/HBoxContainer/processbar"]
+layout_mode = 2
+
+[node name="HSlider" type="HSlider" parent="Panel/VBoxContainer/HBoxContainer/processbar"]
+custom_minimum_size = Vector2(800, 100)
+layout_mode = 2
+
+[node name="name" type="Label" parent="Panel/VBoxContainer/HBoxContainer/processbar"]
+layout_mode = 2
+text = "进  度       
+"
+
+[node name="name_lable" type="Label" parent="Panel/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+text = "正在装配"
+horizontal_alignment = 1
+vertical_alignment = 1

@@ -1,0 +1,21 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://c7ejec3qg7cv4"
+path="res://.godot/imported/扳手工具.obj-3ebc6e70528d8630cf85026d0fbdfdd1.mesh"
+
+[deps]
+
+files=["res://.godot/imported/扳手工具.obj-3ebc6e70528d8630cf85026d0fbdfdd1.mesh"]
+
+source_file="res://Model/AssemblyModel/扳手工具.obj"
+dest_files=["res://.godot/imported/扳手工具.obj-3ebc6e70528d8630cf85026d0fbdfdd1.mesh", "res://.godot/imported/扳手工具.obj-3ebc6e70528d8630cf85026d0fbdfdd1.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true

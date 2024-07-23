@@ -1,0 +1,85 @@
+[gd_scene load_steps=9 format=3 uid="uid://c4gdbl8yjw5pd"]
+
+[ext_resource type="ArrayMesh" uid="uid://c7ejec3qg7cv4" path="res://Model/AssemblyModel/扳手工具.obj" id="1_3hsdh"]
+[ext_resource type="Script" path="res://UI/assemblyModelScene/scene_manager.gd" id="1_4ch7a"]
+[ext_resource type="ArrayMesh" uid="uid://b260gfvr16nma" path="res://Model/AssemblyModel/新扳手.obj" id="2_kertf"]
+[ext_resource type="PackedScene" uid="uid://me0r0fuw1dmp" path="res://Model/AssemblyModel/zzt5.glb" id="3_cfxvt"]
+[ext_resource type="PackedScene" uid="uid://oer8jvbhwccm" path="res://xr_temp.tscn" id="5_6sjoa"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_h35qd"]
+sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
+ground_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
+
+[sub_resource type="Sky" id="Sky_sum18"]
+sky_material = SubResource("ProceduralSkyMaterial_h35qd")
+
+[sub_resource type="Environment" id="Environment_76rpq"]
+background_mode = 2
+sky = SubResource("Sky_sum18")
+tonemap_mode = 2
+glow_enabled = true
+
+[node name="Node3D" type="Node3D"]
+script = ExtResource("1_4ch7a")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_76rpq")
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(0.939693, -0.133638, 0.314831, 0, 0.920505, 0.390731, -0.34202, -0.367167, 0.864992, 0.4, 0.4, 1)
+
+[node name="Node" type="Node" parent="."]
+
+[node name="扳手工具" type="MeshInstance3D" parent="Node"]
+transform = Transform3D(0.4, 0, 0, 0, 0.4, 0, 0, 0, 0.4, -387.429, 1.19209e-07, -15.0836)
+visible = false
+mesh = ExtResource("1_3hsdh")
+skeleton = NodePath("../..")
+
+[node name="新扳手" type="MeshInstance3D" parent="Node"]
+transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, 0, 0)
+visible = false
+mesh = ExtResource("2_kertf")
+skeleton = NodePath("../..")
+
+[node name="zzt5" parent="Node" instance=ExtResource("3_cfxvt")]
+transform = Transform3D(0.01, 0, 0, 0, 0.01, 0, 0, 0, 0.01, 0, 0, 0)
+
+[node name="Node3D" type="Node3D" parent="."]
+visible = false
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="Node3D"]
+transform = Transform3D(0.453105, 0.753724, 0.476021, -0.0690013, -0.502726, 0.861688, 0.888783, -0.423281, -0.17578, 9.99833, 0.00674868, 0)
+light_energy = 3.0
+
+[node name="DirectionalLight3D2" type="DirectionalLight3D" parent="Node3D"]
+transform = Transform3D(0.234052, 0.84772, -0.476015, 0.0688809, -0.502843, -0.861629, -0.969781, 0.168878, -0.176083, 10, 0, 0)
+light_energy = 0.8
+
+[node name="DirectionalLight3D3" type="DirectionalLight3D" parent="Node3D"]
+transform = Transform3D(-0.270452, -0.821974, -0.501213, -0.0690013, -0.502726, 0.861688, -0.960257, 0.26763, 0.0792461, 9.99833, 0.00674868, 0)
+light_energy = 3.0
+
+[node name="Node3D2" type="Node3D" parent="."]
+
+[node name="OmniLight3D" type="OmniLight3D" parent="Node3D2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 1, -0.4)
+light_energy = 0.5
+
+[node name="OmniLight3D2" type="OmniLight3D" parent="Node3D2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -2, 0)
+light_energy = 0.5
+
+[node name="OmniLight3D3" type="OmniLight3D" parent="Node3D2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.1, 0.4, 1)
+light_energy = 2.0
+
+[node name="OmniLight3D4" type="OmniLight3D" parent="Node3D2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -2)
+light_energy = 0.4
+
+[node name="OmniLight3D5" type="OmniLight3D" parent="Node3D2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.5, 1, 0)
+light_energy = 0.5
+
+[node name="XROrigin3D" parent="." instance=ExtResource("5_6sjoa")]

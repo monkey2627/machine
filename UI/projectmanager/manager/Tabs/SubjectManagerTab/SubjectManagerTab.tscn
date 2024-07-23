@@ -1,0 +1,252 @@
+[gd_scene load_steps=11 format=3 uid="uid://b4cwqud1ahodi"]
+
+[ext_resource type="Script" path="res://UI/projectmanager/manager/Tabs/SubjectManagerTab/SubjectManagerTab.gd" id="1_yhomu"]
+[ext_resource type="Texture2D" uid="uid://cmi0xs6v0jdik" path="res://UI/teacher/icons/Search.svg" id="2_sj7rc"]
+[ext_resource type="Script" path="res://UI/projectmanager/manager/Tabs/SubjectManagerTab/SubjectList.gd" id="3_u6wci"]
+[ext_resource type="Texture2D" uid="uid://r62emunc0cyi" path="res://UI/teacher/icons/FileList.svg" id="4_rsuvi"]
+[ext_resource type="Script" path="res://UI/projectmanager/manager/Tabs/SubjectManagerTab/IncludedItem.gd" id="5_3fk4n"]
+[ext_resource type="Texture2D" uid="uid://b7avckpvamua5" path="res://UI/teacher/icons/Add.svg" id="6_y7fe0"]
+[ext_resource type="Texture2D" uid="uid://dnqmoc4tmlcts" path="res://UI/teacher/icons/Remove.svg" id="7_53vek"]
+[ext_resource type="Texture2D" uid="uid://d0w15elw2dnsr" path="res://UI/teacher/icons/Rename.svg" id="8_mg0hg"]
+[ext_resource type="Texture2D" uid="uid://du35uc6lv57jh" path="res://UI/projectmanager/icons/Reload.svg" id="9_cp8ca"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_wewqe"]
+font_size = 14
+font_color = Color(0.909804, 0.776471, 0.243137, 1)
+
+[node name="SubjectManagerTab" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+script = ExtResource("1_yhomu")
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="HSplitContainer" type="HSplitContainer" parent="Panel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_vertical = 3
+
+[node name="ListBox" type="VSplitContainer" parent="Panel/HSplitContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 5.0
+
+[node name="SearchBox" type="HBoxContainer" parent="Panel/HSplitContainer/ListBox"]
+layout_mode = 2
+
+[node name="LineEdit" type="LineEdit" parent="Panel/HSplitContainer/ListBox/SearchBox"]
+layout_mode = 2
+size_flags_horizontal = 3
+placeholder_text = "查找"
+right_icon = ExtResource("2_sj7rc")
+
+[node name="HSplitContainer" type="HSplitContainer" parent="Panel/HSplitContainer/ListBox"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="ScrollContainer" type="ScrollContainer" parent="Panel/HSplitContainer/ListBox/HSplitContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="List" type="VBoxContainer" parent="Panel/HSplitContainer/ListBox/HSplitContainer/ScrollContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+script = ExtResource("3_u6wci")
+
+[node name="ScrollContainer2" type="ScrollContainer" parent="Panel/HSplitContainer/ListBox/HSplitContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="ProjectList" type="VBoxContainer" parent="Panel/HSplitContainer/ListBox/HSplitContainer/ScrollContainer2"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Button" type="Button" parent="Panel/HSplitContainer/ListBox/HSplitContainer/ScrollContainer2/ProjectList"]
+layout_mode = 2
+text = "包含项目"
+icon = ExtResource("4_rsuvi")
+
+[node name="Panel" type="Panel" parent="Panel/HSplitContainer/ListBox/HSplitContainer/ScrollContainer2/ProjectList"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="projects" type="VBoxContainer" parent="Panel/HSplitContainer/ListBox/HSplitContainer/ScrollContainer2/ProjectList/Panel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_vertical = 3
+script = ExtResource("5_3fk4n")
+
+[node name="Buttons" type="VBoxContainer" parent="Panel/HSplitContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="new" type="Button" parent="Panel/HSplitContainer/Buttons"]
+layout_mode = 2
+text = "新建"
+icon = ExtResource("6_y7fe0")
+
+[node name="delete" type="Button" parent="Panel/HSplitContainer/Buttons"]
+layout_mode = 2
+text = "删除"
+icon = ExtResource("7_53vek")
+
+[node name="modify" type="Button" parent="Panel/HSplitContainer/Buttons"]
+layout_mode = 2
+text = "修改"
+icon = ExtResource("8_mg0hg")
+
+[node name="flush" type="Button" parent="Panel/HSplitContainer/Buttons"]
+layout_mode = 2
+text = "刷新"
+icon = ExtResource("9_cp8ca")
+
+[node name="HSeparator" type="HSeparator" parent="Panel/HSplitContainer/Buttons"]
+layout_mode = 2
+
+[node name="Panel" type="Panel" parent="Panel/HSplitContainer/Buttons"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Button" type="Button" parent="Panel/HSplitContainer/Buttons"]
+layout_mode = 2
+text = "关于"
+
+[node name="DeleteDialog" type="AcceptDialog" parent="."]
+initial_position = 1
+title = "提示"
+size = Vector2i(300, 150)
+
+[node name="HBoxContainer" type="HBoxContainer" parent="DeleteDialog"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 8.0
+offset_top = 8.0
+offset_right = -8.0
+offset_bottom = -49.0
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+
+[node name="Label" type="Label" parent="DeleteDialog/HBoxContainer"]
+layout_mode = 2
+text = "1"
+horizontal_alignment = 1
+vertical_alignment = 2
+
+[node name="NewDialog" type="AcceptDialog" parent="."]
+initial_position = 1
+title = "新建科目"
+size = Vector2i(500, 300)
+
+[node name="GridContainer" type="GridContainer" parent="NewDialog"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 8.0
+offset_top = 8.0
+offset_right = -8.0
+offset_bottom = -49.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="NewDialog/GridContainer"]
+layout_mode = 2
+text = "科目名称:"
+
+[node name="name" type="LineEdit" parent="NewDialog/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Label2" type="Label" parent="NewDialog/GridContainer"]
+layout_mode = 2
+text = "科目描述"
+
+[node name="text" type="TextEdit" parent="NewDialog/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Label3" type="Label" parent="NewDialog/GridContainer"]
+layout_mode = 2
+text = "科目名称不能为空！"
+label_settings = SubResource("LabelSettings_wewqe")
+
+[node name="AcceptDialog" type="AcceptDialog" parent="NewDialog"]
+initial_position = 1
+title = "提示"
+size = Vector2i(149, 100)
+
+[node name="Label" type="Label" parent="NewDialog/AcceptDialog"]
+offset_left = 8.0
+offset_top = 8.0
+offset_right = 141.0
+offset_bottom = 51.0
+text = "输入内容不能为空!"
+
+[node name="ModifyDialog" type="AcceptDialog" parent="."]
+initial_position = 1
+title = "修改科目信息"
+size = Vector2i(500, 300)
+
+[node name="GridContainer" type="GridContainer" parent="ModifyDialog"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 8.0
+offset_top = 8.0
+offset_right = -8.0
+offset_bottom = -49.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="ModifyDialog/GridContainer"]
+layout_mode = 2
+text = "科目名称:"
+
+[node name="name" type="LineEdit" parent="ModifyDialog/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Label2" type="Label" parent="ModifyDialog/GridContainer"]
+layout_mode = 2
+text = "科目描述"
+
+[node name="text" type="TextEdit" parent="ModifyDialog/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Label3" type="Label" parent="ModifyDialog/GridContainer"]
+visible = false
+layout_mode = 2
+text = "科目名称不能为空！"
+label_settings = SubResource("LabelSettings_wewqe")
+
+[connection signal="text_changed" from="Panel/HSplitContainer/ListBox/SearchBox/LineEdit" to="." method="_on_search_item"]
+[connection signal="pressed" from="Panel/HSplitContainer/Buttons/Button" to="." method="_on_jump"]
+[connection signal="text_changed" from="NewDialog/GridContainer/name" to="." method="_on_new_text_changed"]
+[connection signal="text_changed" from="ModifyDialog/GridContainer/name" to="." method="_on_modify_text_changed"]

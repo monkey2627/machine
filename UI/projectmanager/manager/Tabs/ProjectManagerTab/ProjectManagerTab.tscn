@@ -1,0 +1,541 @@
+[gd_scene load_steps=14 format=3 uid="uid://cnjgvp5o3dn0n"]
+
+[ext_resource type="Script" path="res://UI/projectmanager/manager/Tabs/ProjectManagerTab/ProjectManagerTab.gd" id="1_2o0qc"]
+[ext_resource type="Texture2D" uid="uid://cmi0xs6v0jdik" path="res://UI/teacher/icons/Search.svg" id="2_cx4xs"]
+[ext_resource type="Script" path="res://UI/projectmanager/manager/Tabs/ProjectManagerTab/ProjectList.gd" id="3_m7i38"]
+[ext_resource type="Texture2D" uid="uid://r62emunc0cyi" path="res://UI/teacher/icons/FileList.svg" id="4_wlbxf"]
+[ext_resource type="Texture2D" uid="uid://b7avckpvamua5" path="res://UI/teacher/icons/Add.svg" id="5_bglxd"]
+[ext_resource type="Texture2D" uid="uid://dnqmoc4tmlcts" path="res://UI/teacher/icons/Remove.svg" id="6_2vhff"]
+[ext_resource type="Texture2D" uid="uid://d0w15elw2dnsr" path="res://UI/teacher/icons/Rename.svg" id="7_0csbr"]
+[ext_resource type="Texture2D" uid="uid://1xu1kma8n0st" path="res://UI/teacher/icons/MainPlay.svg" id="8_byrng"]
+[ext_resource type="Script" path="res://UI/projectmanager/manager/Tabs/ProjectManagerTab/NewDialog.gd" id="9_5yfxe"]
+[ext_resource type="Texture2D" uid="uid://du35uc6lv57jh" path="res://UI/projectmanager/icons/Reload.svg" id="9_vb0c7"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_kc3fm"]
+font_color = Color(0.486275, 0.486275, 0.486275, 1)
+shadow_size = 0
+
+[sub_resource type="LabelSettings" id="LabelSettings_fclr3"]
+font_color = Color(0.486275, 0.486275, 0.486275, 1)
+shadow_size = 0
+
+[sub_resource type="LabelSettings" id="LabelSettings_ncxgx"]
+font_size = 14
+font_color = Color(0.909804, 0.776471, 0.243137, 1)
+
+[node name="ProjectManagerTab" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_2o0qc")
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="HSplitContainer" type="HSplitContainer" parent="Panel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_vertical = 3
+
+[node name="ListBox" type="VSplitContainer" parent="Panel/HSplitContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 5.0
+
+[node name="SearchBox" type="HBoxContainer" parent="Panel/HSplitContainer/ListBox"]
+layout_mode = 2
+
+[node name="LineEdit" type="LineEdit" parent="Panel/HSplitContainer/ListBox/SearchBox"]
+layout_mode = 2
+size_flags_horizontal = 3
+placeholder_text = "查找"
+right_icon = ExtResource("2_cx4xs")
+
+[node name="HSplitContainer" type="HSplitContainer" parent="Panel/HSplitContainer/ListBox"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="ScrollContainer" type="ScrollContainer" parent="Panel/HSplitContainer/ListBox/HSplitContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="List" type="VBoxContainer" parent="Panel/HSplitContainer/ListBox/HSplitContainer/ScrollContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+script = ExtResource("3_m7i38")
+
+[node name="Panel" type="Panel" parent="Panel/HSplitContainer/ListBox/HSplitContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="ScrollContainer" type="ScrollContainer" parent="Panel/HSplitContainer/ListBox/HSplitContainer/Panel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="projectInfo" type="VBoxContainer" parent="Panel/HSplitContainer/ListBox/HSplitContainer/Panel/ScrollContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="info" type="Button" parent="Panel/HSplitContainer/ListBox/HSplitContainer/Panel/ScrollContainer/projectInfo"]
+layout_mode = 2
+text = "项目信息"
+icon = ExtResource("4_wlbxf")
+
+[node name="projectBox" type="VBoxContainer" parent="Panel/HSplitContainer/ListBox/HSplitContainer/Panel/ScrollContainer/projectInfo"]
+layout_mode = 2
+
+[node name="projectName" type="HBoxContainer" parent="Panel/HSplitContainer/ListBox/HSplitContainer/Panel/ScrollContainer/projectInfo/projectBox"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Panel/HSplitContainer/ListBox/HSplitContainer/Panel/ScrollContainer/projectInfo/projectBox/projectName"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "项目名称"
+label_settings = SubResource("LabelSettings_kc3fm")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="name" type="Label" parent="Panel/HSplitContainer/ListBox/HSplitContainer/Panel/ScrollContainer/projectInfo/projectBox/projectName"]
+layout_mode = 2
+size_flags_horizontal = 3
+vertical_alignment = 1
+
+[node name="projectInfo" type="HBoxContainer" parent="Panel/HSplitContainer/ListBox/HSplitContainer/Panel/ScrollContainer/projectInfo/projectBox"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Panel/HSplitContainer/ListBox/HSplitContainer/Panel/ScrollContainer/projectInfo/projectBox/projectInfo"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "项目描述"
+label_settings = SubResource("LabelSettings_kc3fm")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="info" type="TextEdit" parent="Panel/HSplitContainer/ListBox/HSplitContainer/Panel/ScrollContainer/projectInfo/projectBox/projectInfo"]
+custom_minimum_size = Vector2(0, 100)
+layout_mode = 2
+size_flags_horizontal = 3
+editable = false
+
+[node name="projectUrl" type="HBoxContainer" parent="Panel/HSplitContainer/ListBox/HSplitContainer/Panel/ScrollContainer/projectInfo/projectBox"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Panel/HSplitContainer/ListBox/HSplitContainer/Panel/ScrollContainer/projectInfo/projectBox/projectUrl"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "项目路径"
+label_settings = SubResource("LabelSettings_kc3fm")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="url" type="Label" parent="Panel/HSplitContainer/ListBox/HSplitContainer/Panel/ScrollContainer/projectInfo/projectBox/projectUrl"]
+layout_mode = 2
+size_flags_horizontal = 3
+vertical_alignment = 1
+
+[node name="belongSubject" type="Button" parent="Panel/HSplitContainer/ListBox/HSplitContainer/Panel/ScrollContainer/projectInfo"]
+layout_mode = 2
+text = "所属科目"
+icon = ExtResource("4_wlbxf")
+
+[node name="belongs" type="HBoxContainer" parent="Panel/HSplitContainer/ListBox/HSplitContainer/Panel/ScrollContainer/projectInfo"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Panel/HSplitContainer/ListBox/HSplitContainer/Panel/ScrollContainer/projectInfo/belongs"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "科目名称"
+label_settings = SubResource("LabelSettings_kc3fm")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="name" type="Label" parent="Panel/HSplitContainer/ListBox/HSplitContainer/Panel/ScrollContainer/projectInfo/belongs"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="product" type="Button" parent="Panel/HSplitContainer/ListBox/HSplitContainer/Panel/ScrollContainer/projectInfo"]
+visible = false
+layout_mode = 2
+text = "产品模型"
+icon = ExtResource("4_wlbxf")
+
+[node name="productBox" type="VBoxContainer" parent="Panel/HSplitContainer/ListBox/HSplitContainer/Panel/ScrollContainer/projectInfo"]
+visible = false
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="productName" type="HBoxContainer" parent="Panel/HSplitContainer/ListBox/HSplitContainer/Panel/ScrollContainer/projectInfo/productBox"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Panel/HSplitContainer/ListBox/HSplitContainer/Panel/ScrollContainer/projectInfo/productBox/productName"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "产品名称"
+label_settings = SubResource("LabelSettings_kc3fm")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="name" type="Label" parent="Panel/HSplitContainer/ListBox/HSplitContainer/Panel/ScrollContainer/projectInfo/productBox/productName"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "A型无人机"
+vertical_alignment = 1
+
+[node name="productID" type="HBoxContainer" parent="Panel/HSplitContainer/ListBox/HSplitContainer/Panel/ScrollContainer/projectInfo/productBox"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Panel/HSplitContainer/ListBox/HSplitContainer/Panel/ScrollContainer/projectInfo/productBox/productID"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "产品编号"
+label_settings = SubResource("LabelSettings_kc3fm")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="id" type="Label" parent="Panel/HSplitContainer/ListBox/HSplitContainer/Panel/ScrollContainer/projectInfo/productBox/productID"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "A"
+label_settings = SubResource("LabelSettings_fclr3")
+vertical_alignment = 1
+
+[node name="productInfo" type="HBoxContainer" parent="Panel/HSplitContainer/ListBox/HSplitContainer/Panel/ScrollContainer/projectInfo/productBox"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Panel/HSplitContainer/ListBox/HSplitContainer/Panel/ScrollContainer/projectInfo/productBox/productInfo"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "产品描述"
+label_settings = SubResource("LabelSettings_kc3fm")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="info" type="Label" parent="Panel/HSplitContainer/ListBox/HSplitContainer/Panel/ScrollContainer/projectInfo/productBox/productInfo"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "lalala"
+label_settings = SubResource("LabelSettings_fclr3")
+vertical_alignment = 1
+
+[node name="productDate" type="HBoxContainer" parent="Panel/HSplitContainer/ListBox/HSplitContainer/Panel/ScrollContainer/projectInfo/productBox"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Panel/HSplitContainer/ListBox/HSplitContainer/Panel/ScrollContainer/projectInfo/productBox/productDate"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "创建日期"
+label_settings = SubResource("LabelSettings_kc3fm")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="date" type="Label" parent="Panel/HSplitContainer/ListBox/HSplitContainer/Panel/ScrollContainer/projectInfo/productBox/productDate"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "2023-7-7"
+label_settings = SubResource("LabelSettings_fclr3")
+vertical_alignment = 1
+
+[node name="HBoxContainer4" type="HBoxContainer" parent="Panel/HSplitContainer/ListBox/HSplitContainer/Panel/ScrollContainer/projectInfo/productBox"]
+visible = false
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Panel/HSplitContainer/ListBox/HSplitContainer/Panel/ScrollContainer/projectInfo/productBox/HBoxContainer4"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "修改日期"
+label_settings = SubResource("LabelSettings_kc3fm")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label2" type="Label" parent="Panel/HSplitContainer/ListBox/HSplitContainer/Panel/ScrollContainer/projectInfo/productBox/HBoxContainer4"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "2023-7-8"
+label_settings = SubResource("LabelSettings_fclr3")
+vertical_alignment = 1
+
+[node name="HSeparator" type="HSeparator" parent="Panel/HSplitContainer/ListBox/HSplitContainer/Panel/ScrollContainer/projectInfo/productBox"]
+layout_mode = 2
+
+[node name="processID" type="HBoxContainer" parent="Panel/HSplitContainer/ListBox/HSplitContainer/Panel/ScrollContainer/projectInfo/productBox"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Panel/HSplitContainer/ListBox/HSplitContainer/Panel/ScrollContainer/projectInfo/productBox/processID"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "装配工艺代号"
+label_settings = SubResource("LabelSettings_kc3fm")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="id" type="Label" parent="Panel/HSplitContainer/ListBox/HSplitContainer/Panel/ScrollContainer/projectInfo/productBox/processID"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "1"
+label_settings = SubResource("LabelSettings_fclr3")
+vertical_alignment = 1
+
+[node name="processName" type="HBoxContainer" parent="Panel/HSplitContainer/ListBox/HSplitContainer/Panel/ScrollContainer/projectInfo/productBox"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Panel/HSplitContainer/ListBox/HSplitContainer/Panel/ScrollContainer/projectInfo/productBox/processName"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "装配工艺名称"
+label_settings = SubResource("LabelSettings_kc3fm")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="name" type="Label" parent="Panel/HSplitContainer/ListBox/HSplitContainer/Panel/ScrollContainer/projectInfo/productBox/processName"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "A型无人机发动机装配"
+label_settings = SubResource("LabelSettings_fclr3")
+vertical_alignment = 1
+
+[node name="processInfo" type="HBoxContainer" parent="Panel/HSplitContainer/ListBox/HSplitContainer/Panel/ScrollContainer/projectInfo/productBox"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Panel/HSplitContainer/ListBox/HSplitContainer/Panel/ScrollContainer/projectInfo/productBox/processInfo"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "装配工艺描述"
+label_settings = SubResource("LabelSettings_kc3fm")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="info" type="TextEdit" parent="Panel/HSplitContainer/ListBox/HSplitContainer/Panel/ScrollContainer/projectInfo/productBox/processInfo"]
+custom_minimum_size = Vector2(0, 100)
+layout_mode = 2
+size_flags_horizontal = 3
+text = "lalala"
+editable = false
+
+[node name="Buttons" type="VBoxContainer" parent="Panel/HSplitContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="new" type="Button" parent="Panel/HSplitContainer/Buttons"]
+layout_mode = 2
+text = "新建"
+icon = ExtResource("5_bglxd")
+
+[node name="delete" type="Button" parent="Panel/HSplitContainer/Buttons"]
+layout_mode = 2
+text = "删除"
+icon = ExtResource("6_2vhff")
+
+[node name="modify" type="Button" parent="Panel/HSplitContainer/Buttons"]
+layout_mode = 2
+text = "修改"
+icon = ExtResource("7_0csbr")
+
+[node name="flush" type="Button" parent="Panel/HSplitContainer/Buttons"]
+layout_mode = 2
+text = "刷新"
+icon = ExtResource("9_vb0c7")
+
+[node name="run" type="Button" parent="Panel/HSplitContainer/Buttons"]
+layout_mode = 2
+text = "运行"
+icon = ExtResource("8_byrng")
+
+[node name="HSeparator" type="HSeparator" parent="Panel/HSplitContainer/Buttons"]
+layout_mode = 2
+
+[node name="Panel" type="Panel" parent="Panel/HSplitContainer/Buttons"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="DeleteDialog" type="AcceptDialog" parent="."]
+initial_position = 1
+title = "提示"
+size = Vector2i(300, 150)
+
+[node name="HBoxContainer" type="HBoxContainer" parent="DeleteDialog"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 8.0
+offset_top = 8.0
+offset_right = -8.0
+offset_bottom = -49.0
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+
+[node name="Label" type="Label" parent="DeleteDialog/HBoxContainer"]
+layout_mode = 2
+text = "1"
+horizontal_alignment = 1
+vertical_alignment = 2
+
+[node name="NewDialog" type="AcceptDialog" parent="."]
+initial_position = 1
+title = "新建项目"
+size = Vector2i(600, 300)
+script = ExtResource("9_5yfxe")
+
+[node name="GridContainer" type="GridContainer" parent="NewDialog"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 8.0
+offset_top = 8.0
+offset_right = -8.0
+offset_bottom = -49.0
+grow_horizontal = 2
+grow_vertical = 2
+columns = 2
+
+[node name="Label" type="Label" parent="NewDialog/GridContainer"]
+custom_minimum_size = Vector2(120, 0)
+layout_mode = 2
+text = "项目名称:"
+
+[node name="name" type="LineEdit" parent="NewDialog/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Label2" type="Label" parent="NewDialog/GridContainer"]
+layout_mode = 2
+text = "项目描述:"
+
+[node name="text" type="TextEdit" parent="NewDialog/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Label3" type="Label" parent="NewDialog/GridContainer"]
+custom_minimum_size = Vector2(0, 30)
+layout_mode = 2
+text = "项目名称不能为空！"
+label_settings = SubResource("LabelSettings_ncxgx")
+
+[node name="HSeparator" type="HSeparator" parent="NewDialog/GridContainer"]
+layout_mode = 2
+
+[node name="Label10" type="Label" parent="NewDialog/GridContainer"]
+layout_mode = 2
+text = "所属科目:"
+
+[node name="belongs" type="Button" parent="NewDialog/GridContainer"]
+layout_mode = 2
+icon = ExtResource("9_vb0c7")
+
+[node name="selectSubject" type="AcceptDialog" parent="NewDialog/GridContainer/belongs"]
+initial_position = 1
+title = "选择所属科目"
+size = Vector2i(400, 400)
+
+[node name="ScrollContainer" type="ScrollContainer" parent="NewDialog/GridContainer/belongs/selectSubject"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 8.0
+offset_top = 8.0
+offset_right = -8.0
+offset_bottom = -49.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ItemList" type="ItemList" parent="NewDialog/GridContainer/belongs/selectSubject/ScrollContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="control" type="Control" parent="NewDialog/GridContainer"]
+layout_mode = 2
+
+[node name="HSeparator3" type="HSeparator" parent="NewDialog/GridContainer"]
+layout_mode = 2
+
+[node name="Label4" type="Label" parent="NewDialog/GridContainer"]
+layout_mode = 2
+text = "项目路径:"
+
+[node name="projectUrl" type="LineEdit" parent="NewDialog/GridContainer"]
+layout_mode = 2
+
+[node name="AcceptDialog" type="AcceptDialog" parent="NewDialog"]
+initial_position = 1
+title = "提示"
+size = Vector2i(149, 100)
+
+[node name="Label" type="Label" parent="NewDialog/AcceptDialog"]
+offset_left = 8.0
+offset_top = 8.0
+offset_right = 141.0
+offset_bottom = 51.0
+text = "输入内容不能为空!"
+
+[node name="ModifyDialog" type="AcceptDialog" parent="."]
+initial_position = 1
+title = "修改科目信息"
+size = Vector2i(500, 300)
+
+[node name="GridContainer" type="GridContainer" parent="ModifyDialog"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 8.0
+offset_top = 8.0
+offset_right = -8.0
+offset_bottom = -49.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="ModifyDialog/GridContainer"]
+layout_mode = 2
+text = "项目名称:"
+
+[node name="name" type="LineEdit" parent="ModifyDialog/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Label2" type="Label" parent="ModifyDialog/GridContainer"]
+layout_mode = 2
+text = "项目描述:"
+
+[node name="text" type="TextEdit" parent="ModifyDialog/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Label4" type="Label" parent="ModifyDialog/GridContainer"]
+layout_mode = 2
+text = "项目路径:"
+
+[node name="projectUrl" type="LineEdit" parent="ModifyDialog/GridContainer"]
+layout_mode = 2
+
+[node name="Label3" type="Label" parent="ModifyDialog/GridContainer"]
+visible = false
+layout_mode = 2
+text = "科目名称不能为空！"
+label_settings = SubResource("LabelSettings_ncxgx")
+
+[connection signal="text_changed" from="Panel/HSplitContainer/ListBox/SearchBox/LineEdit" to="." method="_on_search_item"]
+[connection signal="text_changed" from="NewDialog/GridContainer/name" to="." method="_on_new_text_changed"]
+[connection signal="text_changed" from="ModifyDialog/GridContainer/name" to="." method="_on_modify_text_changed"]

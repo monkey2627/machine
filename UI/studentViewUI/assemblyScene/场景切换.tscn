@@ -1,0 +1,37 @@
+[gd_scene load_steps=3 format=3 uid="uid://6mm1o57iocwg"]
+
+[ext_resource type="Script" path="res://assemble_scene.gd" id="1_ujv8d"]
+[ext_resource type="PackedScene" uid="uid://dfavfadpklqvq" path="res://UI/assemblyScenes/assembly_scene_item.tscn" id="2_ew5e5"]
+
+[node name="场景切换" type="VBoxContainer"]
+visible = false
+size_flags_horizontal = 3
+size_flags_vertical = 3
+script = ExtResource("1_ujv8d")
+
+[node name="AssScenePop" type="Panel" parent="."]
+visible = false
+top_level = true
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="AssScenePop"]
+layout_mode = 0
+offset_right = 150.0
+offset_bottom = 40.0
+theme_override_constants/separation = 10
+
+[node name="show" type="Button" parent="AssScenePop/VBoxContainer"]
+layout_mode = 2
+text = "查看信息"
+
+[node name="ScrollContainer" type="ScrollContainer" parent="."]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="HFlowContainer" type="HFlowContainer" parent="ScrollContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="assembly_scene_item" parent="ScrollContainer/HFlowContainer" instance=ExtResource("2_ew5e5")]
+layout_mode = 2

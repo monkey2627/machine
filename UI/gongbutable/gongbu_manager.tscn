@@ -1,0 +1,148 @@
+[gd_scene load_steps=2 format=3 uid="uid://bu64bd071ml6o"]
+
+[ext_resource type="Script" path="res://UI/gongbutable/gongbu_list.gd" id="1_8kjsx"]
+
+[node name="工步管理" type="VBoxContainer"]
+
+[node name="添加工步" type="Button" parent="."]
+layout_mode = 2
+text = "添加工步"
+
+[node name="AddGongbuDialog" type="AcceptDialog" parent="."]
+initial_position = 2
+title = "添加工步"
+size = Vector2i(362, 228)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="AddGongbuDialog"]
+custom_minimum_size = Vector2(0, 50)
+anchors_preset = 10
+anchor_right = 1.0
+offset_left = 8.0
+offset_top = 8.0
+offset_right = -8.0
+offset_bottom = 179.0
+grow_horizontal = 2
+
+[node name="Name" type="HBoxContainer" parent="AddGongbuDialog/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Name" type="Label" parent="AddGongbuDialog/VBoxContainer/Name"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+text = "装配名称:"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="NameEdit" type="LineEdit" parent="AddGongbuDialog/VBoxContainer/Name"]
+layout_mode = 2
+size_flags_horizontal = 3
+placeholder_text = "请输入名称"
+
+[node name="Department" type="HBoxContainer" parent="AddGongbuDialog/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Department" type="Label" parent="AddGongbuDialog/VBoxContainer/Department"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+text = "装配部门"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="DepartmentEdit" type="LineEdit" parent="AddGongbuDialog/VBoxContainer/Department"]
+layout_mode = 2
+size_flags_horizontal = 3
+placeholder_text = "请输入"
+
+[node name="Demand" type="HBoxContainer" parent="AddGongbuDialog/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Demand" type="Label" parent="AddGongbuDialog/VBoxContainer/Demand"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+text = "装配要求:"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="DemandEdit" type="LineEdit" parent="AddGongbuDialog/VBoxContainer/Demand"]
+layout_mode = 2
+size_flags_horizontal = 3
+placeholder_text = "请输入"
+
+[node name="Time" type="HBoxContainer" parent="AddGongbuDialog/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Time" type="Label" parent="AddGongbuDialog/VBoxContainer/Time"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+text = "工时定额:"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="TimeEdit" type="LineEdit" parent="AddGongbuDialog/VBoxContainer/Time"]
+layout_mode = 2
+size_flags_horizontal = 3
+placeholder_text = "请输入"
+
+[node name="Header" type="HBoxContainer" parent="."]
+layout_mode = 2
+
+[node name="number" type="Label" parent="Header"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+text = "装配序号"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="name" type="Label" parent="Header"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+text = "装配名称"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="department" type="Label" parent="Header"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+text = "装配部门"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="time" type="Label" parent="Header"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+text = "工时定额"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="demand" type="Label" parent="Header"]
+custom_minimum_size = Vector2(300, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+text = "装配要求"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="operation" type="Label" parent="Header"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+text = "操作"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="GongbuListScroll" type="ScrollContainer" parent="."]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="gongbuList" type="VBoxContainer" parent="GongbuListScroll"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+script = ExtResource("1_8kjsx")
+
+[connection signal="pressed" from="添加工步" to="GongbuListScroll/gongbuList" method="_on__pressed"]
+[connection signal="confirmed" from="AddGongbuDialog" to="GongbuListScroll/gongbuList" method="_on_add_gongbu_dialog_confirmed"]

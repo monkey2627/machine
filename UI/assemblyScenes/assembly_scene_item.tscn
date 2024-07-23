@@ -1,0 +1,29 @@
+[gd_scene load_steps=4 format=3 uid="uid://dfavfadpklqvq"]
+
+[ext_resource type="Script" path="res://UI/assemblyScenes/assembly_scene_item.gd" id="1_ixfg1"]
+[ext_resource type="Texture2D" uid="uid://cg2m5xltd5ma5" path="res://icon.svg" id="2_efm41"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_sxsee"]
+bg_color = Color(0.188235, 0.188235, 0.188235, 0)
+
+[node name="assembly_scene_item" type="PanelContainer"]
+offset_right = 128.0
+offset_bottom = 157.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_sxsee")
+script = ExtResource("1_ixfg1")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="VBoxContainer"]
+layout_mode = 2
+texture = ExtResource("2_efm41")
+
+[node name="Label" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+text = "资源名"
+horizontal_alignment = 1
+
+[connection signal="gui_input" from="." to="." method="_on_gui_input"]
+[connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]

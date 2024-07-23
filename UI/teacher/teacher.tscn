@@ -1,0 +1,222 @@
+[gd_scene load_steps=9 format=3 uid="uid://b48rqdjs17wcp"]
+
+[ext_resource type="Script" path="res://UI/teacher/teacherinterface.gd" id="1_8jq6a"]
+[ext_resource type="Texture2D" uid="uid://r62emunc0cyi" path="res://UI/teacher/icons/FileList.svg" id="2_uvf2h"]
+[ext_resource type="Texture2D" uid="uid://b7avckpvamua5" path="res://UI/teacher/icons/Add.svg" id="3_dja4c"]
+[ext_resource type="Texture2D" uid="uid://dnqmoc4tmlcts" path="res://UI/teacher/icons/Remove.svg" id="4_s0h25"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_e5a6v"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xdyc7"]
+content_margin_left = 24.0
+content_margin_top = 12.0
+content_margin_right = 24.0
+content_margin_bottom = 12.0
+bg_color = Color(0.0117647, 0.0117647, 0.0117647, 1)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_uf75r"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_bggcv"]
+
+[node name="teacher" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_8jq6a")
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 0
+offset_right = 1155.0
+offset_bottom = 643.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Panel"]
+layout_mode = 0
+offset_left = 15.0
+offset_top = 94.0
+offset_right = 790.0
+offset_bottom = 636.0
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="Panel/VBoxContainer"]
+layout_mode = 2
+
+[node name="VSeparator" type="VSeparator" parent="Panel/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+theme_override_constants/separation = 100
+theme_override_styles/separator = SubResource("StyleBoxEmpty_e5a6v")
+
+[node name="Label" type="Label" parent="Panel/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+text = "学生名单"
+
+[node name="VSeparator2" type="VSeparator" parent="Panel/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+theme_override_constants/separation = 350
+theme_override_styles/separator = SubResource("StyleBoxEmpty_e5a6v")
+
+[node name="Label2" type="Label" parent="Panel/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+text = "学生课程"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Panel/VBoxContainer"]
+custom_minimum_size = Vector2(0, 500)
+layout_mode = 2
+
+[node name="studentInfo" type="ScrollContainer" parent="Panel/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(300, 330)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_xdyc7")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Panel/VBoxContainer/HBoxContainer/studentInfo"]
+layout_mode = 2
+
+[node name="VSeparator" type="VSeparator" parent="Panel/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 50
+theme_override_styles/separator = SubResource("StyleBoxEmpty_e5a6v")
+
+[node name="stu_projectInfp" type="ScrollContainer" parent="Panel/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(400, 330)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_xdyc7")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Panel/VBoxContainer/HBoxContainer/stu_projectInfp"]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Panel/VBoxContainer/HBoxContainer/stu_projectInfp/VBoxContainer"]
+layout_mode = 2
+
+[node name="LineEdit" type="LineEdit" parent="Panel/VBoxContainer/HBoxContainer/stu_projectInfp/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(80, 0)
+layout_mode = 2
+text = "用户Id"
+alignment = 1
+editable = false
+
+[node name="LineEdit2" type="LineEdit" parent="Panel/VBoxContainer/HBoxContainer/stu_projectInfp/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(80, 0)
+layout_mode = 2
+text = "学生账户"
+alignment = 1
+editable = false
+
+[node name="LineEdit3" type="LineEdit" parent="Panel/VBoxContainer/HBoxContainer/stu_projectInfp/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(80, 0)
+layout_mode = 2
+text = "科目"
+alignment = 1
+editable = false
+
+[node name="LineEdit4" type="LineEdit" parent="Panel/VBoxContainer/HBoxContainer/stu_projectInfp/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(80, 0)
+layout_mode = 2
+text = "项目"
+alignment = 1
+editable = false
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="Panel"]
+layout_mode = 0
+offset_left = 789.0
+offset_top = 86.0
+offset_right = 1143.0
+offset_bottom = 624.0
+theme_override_constants/separation = 10
+
+[node name="Info" type="Button" parent="Panel/VBoxContainer2"]
+layout_mode = 2
+text = "学生对应科目操作台
+"
+icon = ExtResource("2_uvf2h")
+
+[node name="HSeparator" type="HSeparator" parent="Panel/VBoxContainer2"]
+layout_mode = 2
+theme_override_constants/separation = 5
+theme_override_styles/separator = SubResource("StyleBoxEmpty_uf75r")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Panel/VBoxContainer2"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Panel/VBoxContainer2/HBoxContainer"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+text = "学生账号："
+
+[node name="LineEdit" type="LineEdit" parent="Panel/VBoxContainer2/HBoxContainer"]
+custom_minimum_size = Vector2(250, 0)
+layout_mode = 2
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="Panel/VBoxContainer2"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Panel/VBoxContainer2/HBoxContainer2"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+text = "科目名称："
+
+[node name="subject_add" type="MenuButton" parent="Panel/VBoxContainer2/HBoxContainer2"]
+custom_minimum_size = Vector2(250, 0)
+layout_mode = 2
+text = "选择科目"
+item_count = 1
+popup/item_0/text = ""
+popup/item_0/id = 0
+
+[node name="HBoxContainer3" type="HBoxContainer" parent="Panel/VBoxContainer2"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Panel/VBoxContainer2/HBoxContainer3"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+text = "项目名称："
+
+[node name="project_add" type="MenuButton" parent="Panel/VBoxContainer2/HBoxContainer3"]
+custom_minimum_size = Vector2(250, 0)
+layout_mode = 2
+text = "选择项目"
+item_count = 1
+popup/item_0/text = ""
+popup/item_0/id = 0
+
+[node name="HSeparator2" type="HSeparator" parent="Panel/VBoxContainer2"]
+layout_mode = 2
+theme_override_constants/separation = 5
+theme_override_styles/separator = SubResource("StyleBoxEmpty_uf75r")
+
+[node name="HBoxContainer4" type="HBoxContainer" parent="Panel/VBoxContainer2"]
+layout_mode = 2
+
+[node name="VSeparator2" type="VSeparator" parent="Panel/VBoxContainer2/HBoxContainer4"]
+layout_mode = 2
+theme_override_constants/separation = 20
+theme_override_styles/separator = SubResource("StyleBoxEmpty_bggcv")
+
+[node name="Button_add" type="Button" parent="Panel/VBoxContainer2/HBoxContainer4"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+text = "添加"
+icon = ExtResource("3_dja4c")
+
+[node name="VSeparator" type="VSeparator" parent="Panel/VBoxContainer2/HBoxContainer4"]
+layout_mode = 2
+theme_override_constants/separation = 100
+theme_override_styles/separator = SubResource("StyleBoxEmpty_bggcv")
+
+[node name="Button_delete" type="Button" parent="Panel/VBoxContainer2/HBoxContainer4"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+text = "删除"
+icon = ExtResource("4_s0h25")
+
+[node name="HTTPRequest_p" type="HTTPRequest" parent="."]
+
+[node name="HTTPRequest_u" type="HTTPRequest" parent="."]
+
+[connection signal="text_changed" from="Panel/VBoxContainer2/HBoxContainer/LineEdit" to="." method="_on_line_edit_text_changed"]
+[connection signal="toggled" from="Panel/VBoxContainer2/HBoxContainer2/subject_add" to="." method="_on_subject_add_toggled"]
+[connection signal="toggled" from="Panel/VBoxContainer2/HBoxContainer3/project_add" to="." method="_on_project_add_toggled"]
+[connection signal="pressed" from="Panel/VBoxContainer2/HBoxContainer4/Button_add" to="." method="_on_button_add_pressed"]
+[connection signal="pressed" from="Panel/VBoxContainer2/HBoxContainer4/Button_delete" to="." method="_on_button_delete_pressed"]
+[connection signal="request_completed" from="HTTPRequest_p" to="." method="_on_http_request_request_completed"]
+[connection signal="request_completed" from="HTTPRequest_u" to="." method="_on_http_request_u_request_completed"]

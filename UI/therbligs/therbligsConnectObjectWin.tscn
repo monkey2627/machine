@@ -1,0 +1,30 @@
+[gd_scene load_steps=2 format=3 uid="uid://jwym5g3kqmf1"]
+
+[ext_resource type="Script" path="res://UI/therbligs/scripts/therbligsConnectObjectWin.gd" id="1_0ocrx"]
+
+[node name="therbligsConnectObjectWin" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_0ocrx")
+
+[node name="SelectModel" type="AcceptDialog" parent="."]
+initial_position = 2
+title = "选择装配对象"
+size = Vector2i(248, 400)
+
+[node name="Tree" type="Tree" parent="SelectModel"]
+custom_minimum_size = Vector2(200, 0)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 8.0
+offset_top = 8.0
+offset_right = -8.0
+offset_bottom = -49.0
+grow_horizontal = 2
+grow_vertical = 2
+allow_rmb_select = true

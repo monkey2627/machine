@@ -1,0 +1,290 @@
+[gd_scene load_steps=2 format=3 uid="uid://bwe3v4bcagwhe"]
+
+[ext_resource type="Script" path="res://UI/studentViewUI/gongyiTree/gongyi_tree.gd" id="1_kqlna"]
+
+[node name="Tree" type="Tree"]
+custom_minimum_size = Vector2(200, 0)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+allow_rmb_select = true
+script = ExtResource("1_kqlna")
+
+[node name="ShowAssemblyGongxu" type="AcceptDialog" parent="."]
+initial_position = 2
+title = "查看工序"
+size = Vector2i(400, 250)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ShowAssemblyGongxu"]
+custom_minimum_size = Vector2(0, 50)
+anchors_preset = 10
+anchor_right = 1.0
+offset_left = 8.0
+offset_top = 8.0
+offset_right = -8.0
+offset_bottom = 201.0
+grow_horizontal = 2
+
+[node name="name" type="HBoxContainer" parent="ShowAssemblyGongxu/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Label" type="Label" parent="ShowAssemblyGongxu/VBoxContainer/name"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+text = "工序名称:"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="LineEdit" type="LineEdit" parent="ShowAssemblyGongxu/VBoxContainer/name"]
+layout_mode = 2
+size_flags_horizontal = 3
+placeholder_text = "请输入名称"
+editable = false
+
+[node name="content" type="HBoxContainer" parent="ShowAssemblyGongxu/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Label" type="Label" parent="ShowAssemblyGongxu/VBoxContainer/content"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+text = "工序内容:"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="LineEdit" type="LineEdit" parent="ShowAssemblyGongxu/VBoxContainer/content"]
+layout_mode = 2
+size_flags_horizontal = 3
+placeholder_text = "请输入工序内容"
+editable = false
+
+[node name="demand" type="HBoxContainer" parent="ShowAssemblyGongxu/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Label" type="Label" parent="ShowAssemblyGongxu/VBoxContainer/demand"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+text = "技术要求:"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="LineEdit" type="LineEdit" parent="ShowAssemblyGongxu/VBoxContainer/demand"]
+layout_mode = 2
+size_flags_horizontal = 3
+placeholder_text = "请输入技术要求"
+editable = false
+
+[node name="time" type="HBoxContainer" parent="ShowAssemblyGongxu/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Label" type="Label" parent="ShowAssemblyGongxu/VBoxContainer/time"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+text = "工时定额:"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="LineEdit" type="LineEdit" parent="ShowAssemblyGongxu/VBoxContainer/time"]
+layout_mode = 2
+size_flags_horizontal = 3
+placeholder_text = "请输入工时定额"
+editable = false
+
+[node name="ShowAssemblyGongbu" type="AcceptDialog" parent="."]
+initial_position = 2
+title = "查看工步"
+size = Vector2i(400, 250)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ShowAssemblyGongbu"]
+custom_minimum_size = Vector2(0, 50)
+anchors_preset = 10
+anchor_right = 1.0
+offset_left = 8.0
+offset_top = 8.0
+offset_right = -8.0
+offset_bottom = 201.0
+grow_horizontal = 2
+
+[node name="name" type="HBoxContainer" parent="ShowAssemblyGongbu/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Label" type="Label" parent="ShowAssemblyGongbu/VBoxContainer/name"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+text = "装配名称:"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="LineEdit" type="LineEdit" parent="ShowAssemblyGongbu/VBoxContainer/name"]
+layout_mode = 2
+size_flags_horizontal = 3
+placeholder_text = "请输入名称"
+editable = false
+
+[node name="department" type="HBoxContainer" parent="ShowAssemblyGongbu/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Label" type="Label" parent="ShowAssemblyGongbu/VBoxContainer/department"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+text = "装配部门:"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="LineEdit" type="LineEdit" parent="ShowAssemblyGongbu/VBoxContainer/department"]
+layout_mode = 2
+size_flags_horizontal = 3
+placeholder_text = "请输入代号"
+editable = false
+
+[node name="demand" type="HBoxContainer" parent="ShowAssemblyGongbu/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Label" type="Label" parent="ShowAssemblyGongbu/VBoxContainer/demand"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+text = "装配要求:"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="LineEdit" type="LineEdit" parent="ShowAssemblyGongbu/VBoxContainer/demand"]
+layout_mode = 2
+size_flags_horizontal = 3
+placeholder_text = "请输入设计人员"
+editable = false
+
+[node name="time" type="HBoxContainer" parent="ShowAssemblyGongbu/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Label" type="Label" parent="ShowAssemblyGongbu/VBoxContainer/time"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+text = "工时定额:"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="LineEdit" type="LineEdit" parent="ShowAssemblyGongbu/VBoxContainer/time"]
+layout_mode = 2
+size_flags_horizontal = 3
+placeholder_text = "请输入设计日期"
+editable = false
+
+[node name="ShowAssemblyGongyi" type="AcceptDialog" parent="."]
+initial_position = 2
+title = "查看工艺"
+size = Vector2i(400, 150)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ShowAssemblyGongyi"]
+custom_minimum_size = Vector2(0, 50)
+anchors_preset = 10
+anchor_right = 1.0
+offset_left = 8.0
+offset_top = 8.0
+offset_right = -8.0
+offset_bottom = 101.0
+grow_horizontal = 2
+
+[node name="name" type="HBoxContainer" parent="ShowAssemblyGongyi/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Label" type="Label" parent="ShowAssemblyGongyi/VBoxContainer/name"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+text = "工艺名称:"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="LineEdit" type="LineEdit" parent="ShowAssemblyGongyi/VBoxContainer/name"]
+layout_mode = 2
+size_flags_horizontal = 3
+placeholder_text = "请输入名称"
+editable = false
+
+[node name="desc" type="HBoxContainer" parent="ShowAssemblyGongyi/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Label" type="Label" parent="ShowAssemblyGongyi/VBoxContainer/desc"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+text = "工艺描述:"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="LineEdit" type="LineEdit" parent="ShowAssemblyGongyi/VBoxContainer/desc"]
+layout_mode = 2
+size_flags_horizontal = 3
+placeholder_text = "请输入代号"
+editable = false
+
+[node name="AssGongyiPop" type="Panel" parent="."]
+visible = false
+top_level = true
+layout_mode = 2
+offset_right = 150.0
+offset_bottom = 40.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="AssGongyiPop"]
+layout_mode = 0
+offset_right = 150.0
+offset_bottom = 154.0
+theme_override_constants/separation = 10
+
+[node name="show" type="Button" parent="AssGongyiPop/VBoxContainer"]
+layout_mode = 2
+text = "查看信息"
+
+[node name="AssGongbuPop" type="Panel" parent="."]
+visible = false
+top_level = true
+layout_mode = 0
+offset_right = 150.0
+offset_bottom = 80.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="AssGongbuPop"]
+layout_mode = 0
+offset_right = 150.0
+offset_bottom = 154.0
+theme_override_constants/separation = 10
+
+[node name="show" type="Button" parent="AssGongbuPop/VBoxContainer"]
+layout_mode = 2
+text = "查看信息"
+
+[node name="playAnimation" type="Button" parent="AssGongbuPop/VBoxContainer"]
+layout_mode = 2
+text = "播放动画"
+
+[node name="AssGongxuPop" type="Panel" parent="."]
+visible = false
+top_level = true
+layout_mode = 0
+offset_right = 150.0
+offset_bottom = 40.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="AssGongxuPop"]
+layout_mode = 0
+offset_right = 150.0
+offset_bottom = 154.0
+theme_override_constants/separation = 10
+
+[node name="show" type="Button" parent="AssGongxuPop/VBoxContainer"]
+layout_mode = 2
+text = "查看信息"
+
+[connection signal="item_icon_double_clicked" from="." to="." method="_on_item_icon_double_clicked"]
+[connection signal="item_mouse_selected" from="." to="." method="_on_item_mouse_selected" flags=18]
+[connection signal="pressed" from="AssGongyiPop/VBoxContainer/show" to="." method="show_gongyi" flags=18]
+[connection signal="pressed" from="AssGongbuPop/VBoxContainer/show" to="." method="show_gongbu"]
+[connection signal="pressed" from="AssGongbuPop/VBoxContainer/playAnimation" to="." method="play_animation"]
+[connection signal="pressed" from="AssGongxuPop/VBoxContainer/show" to="." method="show_gongxu" flags=18]

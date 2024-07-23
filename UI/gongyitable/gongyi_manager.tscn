@@ -1,0 +1,101 @@
+[gd_scene load_steps=2 format=3 uid="uid://bmadb7rmhimf4"]
+
+[ext_resource type="Script" path="res://UI/gongyitable/gongyi_list.gd" id="2_8ru0b"]
+
+[node name="工艺管理" type="VBoxContainer"]
+
+[node name="添加工艺" type="Button" parent="."]
+layout_mode = 2
+text = "添加工艺"
+
+[node name="AddGongYiDialog" type="AcceptDialog" parent="."]
+initial_position = 2
+title = "添加工艺"
+size = Vector2i(300, 123)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="AddGongYiDialog"]
+custom_minimum_size = Vector2(0, 50)
+anchors_preset = 10
+anchor_right = 1.0
+offset_left = 8.0
+offset_top = 8.0
+offset_right = -8.0
+offset_bottom = 74.0
+grow_horizontal = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="AddGongYiDialog/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Name" type="Label" parent="AddGongYiDialog/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+text = "工艺名称:"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="NameEdit" type="LineEdit" parent="AddGongYiDialog/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+placeholder_text = "请输入名称"
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="AddGongYiDialog/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Desc" type="Label" parent="AddGongYiDialog/VBoxContainer/HBoxContainer2"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+text = "工艺描述:"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="DescEdit" type="LineEdit" parent="AddGongYiDialog/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 3
+placeholder_text = "请输入描述内容"
+
+[node name="Header" type="HBoxContainer" parent="."]
+layout_mode = 2
+
+[node name="number" type="Label" parent="Header"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+text = "序号"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="name" type="Label" parent="Header"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+text = "工艺名称"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="desc" type="Label" parent="Header"]
+custom_minimum_size = Vector2(300, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+text = "工艺描述"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="operation" type="Label" parent="Header"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+text = "操作"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="GongYiListScroll" type="ScrollContainer" parent="."]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="gongyiList" type="VBoxContainer" parent="GongYiListScroll"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+script = ExtResource("2_8ru0b")
+
+[connection signal="pressed" from="添加工艺" to="GongYiListScroll/gongyiList" method="_on__pressed"]
+[connection signal="confirmed" from="AddGongYiDialog" to="GongYiListScroll/gongyiList" method="_on_add_gong_yi_dialog_confirmed"]

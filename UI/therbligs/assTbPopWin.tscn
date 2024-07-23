@@ -1,0 +1,5 @@
+[gd_scene format=3 uid="uid://caoun1koppmjp"]
+
+[node name="therbligItem" type="VBoxContainer"]
+offset_right = 212.0
+offset_bottom = 30.0
