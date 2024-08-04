@@ -32,11 +32,6 @@ var now_
 func _ready() -> void:
 	pass # Replace with function body.
 
-func get_root(now:Node3D):
-	if(now.get_parent().name!="MainUI"):
-		return get_root(now.get_parent())
-	else :
-		return now
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	if Input.is_action_pressed("quit"):
@@ -77,7 +72,7 @@ func _process(delta: float) -> void:
 				selected_object = col
 				timer = 0
 				Axis.visible = true
-				Axis.position = get_root(selected_object.get_parent()).position
+				Axis.position = selected_object.get_parent().get_parent().position
 				print(selected_object.get_parent().name)
 			elif  col == null:
 				selected_object = null
@@ -88,9 +83,10 @@ func _process(delta: float) -> void:
 		#如果鼠标左键点击并且已有选中物体
 		if Input.is_action_pressed("drag") :
 			axis = ray_cast_3d.get_collider()
+			
 			if(axis == null):
-				print("w")
-			if axis != null && axis.name == "x":
+				print("you did not click on the obj")
+			elif axis != null && axis.name == "x":
 				print("click")
 				if move >= 10:
 					first = true
@@ -103,9 +99,9 @@ func _process(delta: float) -> void:
 					move = 0
 					now = ray_cast_3d.get_collision_point() 
 					Axis.position +=  Vector3((now-last).x,0,0) 
-					get_root(selected_object.get_parent()).position += Vector3((now-last).x,0,0) 
+					selected_object.get_parent().position += Vector3((now-last).x*200,0,0) 
 					last = now
-			if axis != null && axis.name == "y":
+			elif axis != null && axis.name == "y":
 				if move >= 10:
 					first = true
 					move = 0
@@ -117,9 +113,9 @@ func _process(delta: float) -> void:
 					move = 0
 					now = ray_cast_3d.get_collision_point() 
 					Axis.position +=  Vector3(0,(now-last).y,0) 
-					get_root(selected_object.get_parent()).position += Vector3(0,(now-last).y,0) 
+					selected_object.get_parent().position += Vector3(0,(now-last).y*200,0) 
 					last = now
-			if axis != null && axis.name == "z":
+			elif axis != null && axis.name == "z":
 				if move >= 10:
 					first = true
 					move = 0
@@ -131,5 +127,7 @@ func _process(delta: float) -> void:
 					move = 0
 					now = ray_cast_3d.get_collision_point() 
 					Axis.position +=  Vector3(0,0,(now-last).z) 
-					get_root(selected_object.get_parent()).position += Vector3(0,0,(now-last).z) 
+					selected_object.get_parent().position += Vector3(0,0,(now-last).z*200) 
 					last = now
+			elif  axis != null:
+				selected_object = axis

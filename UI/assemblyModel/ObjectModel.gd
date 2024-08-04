@@ -11,16 +11,16 @@ func _ready():
 
 #初始化数据
 func initData():
-	var model1 = {}
-	model1.id = 0
-	model1.name = "装配对象模型1-扳手"
-	model1.path = "res://Model/AssemblyModel/新扳手.obj"
-	model.append(model1)
+	#var model1 = {}
+	#model1.id = 0
+	#model1.name = "装配对象模型1-扳手"
+	#model1.path = "Model\\AssemblyModel\\zzt5.glb"
+	#model.append(model1)
 	
 	var model2 = {}
 	model2.id = 0
-	model2.name = "装配对象模型2-书桌"
-	model2.path = "res://Model/AssemblyModel/zzt5.glb"
+	model2.name = "装配对象模型1-书桌"
+	model2.path = "Model\\AssemblyModel\\zzt5.glb"
 	model.append(model2)
 	pass
 	
@@ -40,7 +40,8 @@ func update_model_list():
 
 #选中模型时显示到窗口中
 func _on_item_selected(index):
-	var show_model_path = get_node("/root/Global").project_path + "\\model\\" + model[index].path
+	var show_model_path = model[index].path
+	print(show_model_path)
 	$"../../../../../../HSplitContainer/VBoxContainer/TabContainer/模型显示".show_model(show_model_path)
 
 

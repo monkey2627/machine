@@ -11,15 +11,15 @@ func _ready():
 
 #初始化数据
 func initData():
-	var model1 = {}
-	model1.id = 0
-	model1.name = "装配对象模型1-扳手"
-	model1.path = "res://Model/AssemblyModel/新扳手.obj"
-	model.append(model1)
+	#var model1 = {}
+	#model1.id = 0
+	#model1.name = "装配对象模型1-扳手"
+	#model1.path = "res://Model/AssemblyModel/新扳手.obj"
+	#model.append(model1)
 	
 	var model2 = {}
 	model2.id = 0
-	model2.name = "装配对象模型2-书桌"
+	model2.name = "装配对象模型1-书桌"
 	model2.path = "res://Model/AssemblyModel/zzt5.glb"
 	model.append(model2)
 	pass

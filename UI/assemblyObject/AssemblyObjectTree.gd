@@ -1,5 +1,5 @@
 extends Tree
-
+#挂载在tree上
 enum AssemblyObjType {zongZhuang, zongCheng, buJian}
 
 var assemblyObjectList = []

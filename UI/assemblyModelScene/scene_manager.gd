@@ -24,7 +24,6 @@ func scene_get_aabb(node):
 #		var new_aabb = AABB(global_p0, global_p1 - global_p0)
 #		print(global_aabb)
 #		var new_aabb = AABB(local_aabb.position + node.position * node.scale, local_aabb.size * node.scale)
-		print(new_aabb)
 		return new_aabb
 	if node.get_child_count() != 0:
 		var aabb
@@ -36,25 +35,31 @@ func scene_get_aabb(node):
 				else:
 					aabb = aabb.merge(var_node_aabb)
 #		aabb.position = aabb.position + node.position
-		print(aabb)
 		return aabb
 	return null
 
-
+#改变场景
 func change_scene(node):
+	print("change_scene")
+	#输入的是根结点
 	# 清空显示的模型
 	for n in $Node.get_children():
 		$Node.remove_child(n)
 		n.queue_free()
 	$Node.add_child(node)
-	print(node)
+	#print(node)
 	var aabb = scene_get_aabb(node)
-	print(aabb)
+	#print(aabb)
 	var maxSize = max(aabb.size.x, aabb.size.y, aabb.size.z)
-	var scale = 1.1 / maxSize
+	var scale = 1.1 / maxSize 
 	node.scale = Vector3(scale, scale, scale)
 	node.position = (-aabb.position - aabb.size / 2) * scale
-#	node.position = Vector3((-aabb.position.x) * scale + aabb.size, (-aabb.position.y) * scale, (-aabb.position.z) * scale)
+	node.position = Vector3(0,0.0,0)
+	#print(node.name)
+	#var now = ViewportTexture.new()
+	#now.viewport_path = "ColorRect/VSplitContainer/HSplitContainer2/HSplitContainer/VBoxContainer/TabContainer/模型显示/SubViewport"
+	#$"../../../动素显示/VSplitContainer/ScrollContainer/TextureRect".set_texture(now)
+
 
 
 func get_scene_node():

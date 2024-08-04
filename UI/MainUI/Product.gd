@@ -83,12 +83,12 @@ func save_product():
 	get_allData()
 	var product_json = JSON.stringify(product,"\t")
 	var save_path = project_path + "\\" + saveName
+	print(save_path)
 	var file = FileAccess.open(save_path, FileAccess.WRITE)
-		
 	#var error = file.open_encrypted_with_pass(save_path, File.WRITE, "124s5d4asd5")
 	#if error == OK:
 	file.store_string(product_json)
-	file.close()
+	#file.close()
 
 	pass # Replace with function body.
 

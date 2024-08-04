@@ -32,12 +32,12 @@ func show_res_model(path):
 
 # 供model显示使用
 func show_model(path):
+	print("show_model")
 	var gltf_state = GLTFState.new()
 	var gltf_doc = GLTFDocument.new()
 	gltf_doc.append_from_file(path, gltf_state)
 	var model = gltf_doc.generate_scene(gltf_state)
 	scene.change_scene(model)
-
 
 # 供装配对象显示使用
 func show_assembly_obj(item):

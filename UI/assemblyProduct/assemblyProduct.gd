@@ -35,19 +35,23 @@ func import_model():
 func confirm_model_select():
 	# 获取路径
 	var choose_path = model_path + $ImportAssemblyProduct/VBoxContainer/HBoxContainer/LineEdit.text
-	print("model_path:"+choose_path)
-	# 导入模型
+	print("confirm_model_select\n	 model_path:"+choose_path)
+	# 根据输入的路径，利用GLTFState和GLTFDocument导入模型
+
 	var gltfState = GLTFState.new()
-	var gltf = GLTFDocument.new()
+	var gltf = GLTFDocument.new()	
+	#接收一个 GLTF 文件的路径，并通过 state 参数将该文件路径上的数据导入到给定的 GLTFState 对象。
 	if gltf.append_from_file(choose_path, gltfState) != OK:
-		return
+		return	
+	#通过 state 参数接收一个 GLTFState 对象，并返回一个 Godot 引擎的场景节点。
 	var importModel = gltf.generate_scene(gltfState)
+	#将imporModel当作assembley product的子节点
 	add_child(importModel)
 	# importModel为场景的根节点，为Node类型，可以通过递归get_childer获得子节点。
 	# 子节点有Node3D类型和MeshInstance3D类型
-	
+	print("		begin generate_object_model")
 	generate_object_model(0, 0, importModel);
-	#print(assemblyObjectList)
+	#
 				
 
 # 递归生成装配对象和装配模型
@@ -79,7 +83,7 @@ func generate_object_model(parent_id, parent_depth, targetNode):
 	newItem.modelLink = -1
 	assemblyObjectList.push_back(newItem)
 	
-	#遍历子节点
+	#遍历当前结点的子节点
 	for var_child in targetNode.get_children():
 		generate_object_model(newItem.id, newItem.tree_depth, var_child)
 #		targetNode.remove_child(var_child)
@@ -89,27 +93,25 @@ func generate_object_model(parent_id, parent_depth, targetNode):
 	if parent_node != null:
 		parent_node.remove_child(targetNode)
 		
-	# 如果有meshInstance，则增加新模型
+	# 如果当前节点是meshInstance，则增加新模型
 	if targetNode is MeshInstance3D:
-		print("this is MeshInstance")
-		print(newItem.name)
-	#	var t = StaticBody3D.new()
-	#	var tt = CollisionObject3D.new()
-	#	t.add_child(tt)
-	#	targetNode.add_child()
+		print("generate_object_model:\n		this is MeshInstance")
 		var newModel = {}
 		newModel.id = assemblyModel.size()
 		newModel.name = targetNode.name
 		newModel.path = str(newModel.id) + ".glb"
-		print(newModel.path)
 		var gltfState = GLTFState.new()
 		var gltf = GLTFDocument.new()
 		var newNode = Node.new()
 		newNode.add_child(targetNode)
+		print("		"+targetNode.name)
+
+		#接收一个 Godot 引擎的场景节点，并通过 state 参数将其及其后代导出到给定的 GLTFState 对象。
 		gltf.append_from_scene(newNode, gltfState)
+		#state 参数接收一个 GLTFState 对象，并将一个 glTF 文件写入文件系统。
+		#glTF 文件的扩展名决定了它是一个 .glb 二进制文件还是一个 .gltf 文本文件。
 		gltf.write_to_filesystem(gltfState, model_root_folder_path + newModel.path)
 		assemblyModel.append(newModel)
-		
 		assemblyObjectList[newItem.id-1].modelLink = newModel.id
 
 
@@ -180,9 +182,10 @@ func generate_object_Node3D(item, rootNode:Node3D):
 				meshInstanceModel.material_override = normal_material
 		rootNode.add_child(importModel)
 
-
+#1
 # 递归生成装配对象和装配模型树，并添加到tbScene中
 func generate_Node3D_Tree(item, rootNode:Node3D):
+	print("begin generate_node3D_tree")
 	# 如果是根节点
 	var assemblyModel_tmp = $"../../../VBoxContainer/VBoxContainer/TabContainer/装配对象3D模型/ItemList".model
 	if item == null:
@@ -226,3 +229,15 @@ func generate_Node3D_Tree(item, rootNode:Node3D):
 		rootNode.add_child(importModel)
 		assmblyObject2Node3D[int(item.id)] = importModel
 		importModel.visible = true
+		var t:StaticBody3D = StaticBody3D.new()
+		var tt:CollisionShape3D = CollisionShape3D.new()
+		tt.shape = BoxShape3D.new()
+		t.add_child(tt)
+		meshInstanceModel.add_child(t)
+		tt.scale = Vector3(100,100,100)
+		
+		print("_______")
+		print(meshInstanceModel.name)
+		print(meshInstanceModel.get_class())
+		#meshInstanceModel.visible = false
+

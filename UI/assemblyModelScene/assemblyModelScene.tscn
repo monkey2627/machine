@@ -44,6 +44,7 @@ skeleton = NodePath("../..")
 
 [node name="zzt5" parent="Node" instance=ExtResource("3_cfxvt")]
 transform = Transform3D(0.01, 0, 0, 0, 0.01, 0, 0, 0, 0.01, 0, 0, 0)
+visible = false
 
 [node name="Node3D" type="Node3D" parent="."]
 visible = false
