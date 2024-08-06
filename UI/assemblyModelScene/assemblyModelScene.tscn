@@ -1,8 +1,8 @@
-[gd_scene load_steps=9 format=3 uid="uid://c4gdbl8yjw5pd"]
+[gd_scene load_steps=9 format=3 uid="uid://4rmmcr8mm8rx"]
 
-[ext_resource type="ArrayMesh" uid="uid://c7ejec3qg7cv4" path="res://Model/AssemblyModel/扳手工具.obj" id="1_3hsdh"]
 [ext_resource type="Script" path="res://UI/assemblyModelScene/scene_manager.gd" id="1_4ch7a"]
-[ext_resource type="ArrayMesh" uid="uid://b260gfvr16nma" path="res://Model/AssemblyModel/新扳手.obj" id="2_kertf"]
+[ext_resource type="ArrayMesh" uid="uid://c7ejec3qg7cv4" path="res://扳手工具.obj" id="2_ub07r"]
+[ext_resource type="ArrayMesh" uid="uid://b260gfvr16nma" path="res://import/新扳手.obj" id="3_078aq"]
 [ext_resource type="PackedScene" uid="uid://me0r0fuw1dmp" path="res://Model/AssemblyModel/zzt5.glb" id="3_cfxvt"]
 [ext_resource type="PackedScene" uid="uid://oer8jvbhwccm" path="res://xr_temp.tscn" id="5_6sjoa"]
 
@@ -33,13 +33,13 @@ transform = Transform3D(0.939693, -0.133638, 0.314831, 0, 0.920505, 0.390731, -0
 [node name="扳手工具" type="MeshInstance3D" parent="Node"]
 transform = Transform3D(0.4, 0, 0, 0, 0.4, 0, 0, 0, 0.4, -387.429, 1.19209e-07, -15.0836)
 visible = false
-mesh = ExtResource("1_3hsdh")
+mesh = ExtResource("2_ub07r")
 skeleton = NodePath("../..")
 
 [node name="新扳手" type="MeshInstance3D" parent="Node"]
 transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, 0, 0)
 visible = false
-mesh = ExtResource("2_kertf")
+mesh = ExtResource("3_078aq")
 skeleton = NodePath("../..")
 
 [node name="zzt5" parent="Node" instance=ExtResource("3_cfxvt")]

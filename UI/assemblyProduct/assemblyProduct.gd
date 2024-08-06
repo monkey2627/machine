@@ -37,7 +37,6 @@ func confirm_model_select():
 	var choose_path = model_path + $ImportAssemblyProduct/VBoxContainer/HBoxContainer/LineEdit.text
 	print("confirm_model_select\n	 model_path:"+choose_path)
 	# 根据输入的路径，利用GLTFState和GLTFDocument导入模型
-
 	var gltfState = GLTFState.new()
 	var gltf = GLTFDocument.new()	
 	#接收一个 GLTF 文件的路径，并通过 state 参数将该文件路径上的数据导入到给定的 GLTFState 对象。
@@ -79,6 +78,7 @@ func generate_object_model(parent_id, parent_depth, targetNode):
 	newItem.position = targetNode.position
 	newItem.rotation = targetNode.rotation
 	newItem.scale = targetNode.scale
+	print(targetNode.get_path())
 	# 将模型位置暂时置空
 	newItem.modelLink = -1
 	assemblyObjectList.push_back(newItem)
@@ -104,15 +104,17 @@ func generate_object_model(parent_id, parent_depth, targetNode):
 		var gltf = GLTFDocument.new()
 		var newNode = Node.new()
 		newNode.add_child(targetNode)
-		print("		"+targetNode.name)
 
 		#接收一个 Godot 引擎的场景节点，并通过 state 参数将其及其后代导出到给定的 GLTFState 对象。
 		gltf.append_from_scene(newNode, gltfState)
 		#state 参数接收一个 GLTFState 对象，并将一个 glTF 文件写入文件系统。
 		#glTF 文件的扩展名决定了它是一个 .glb 二进制文件还是一个 .gltf 文本文件。
 		gltf.write_to_filesystem(gltfState, model_root_folder_path + newModel.path)
-		assemblyModel.append(newModel)
+		assemblyModel.append(newModel)		
+		print("		"+targetNode.name)
+		print(targetNode.is_inside_tree())
 		assemblyObjectList[newItem.id-1].modelLink = newModel.id
+		
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -165,6 +167,7 @@ func generate_object_Node3D(item, rootNode:Node3D):
 		for child in children_items:
 			generate_object_Node3D(child, newNode)
 	else:
+		
 		# 如果当前节点不是父节点，说明当前节点meshinstance，则获取该节点的模型，将其加到node3d下
 		var addModel = assemblyModel_tmp[item.modelLink]
 		# 从model path生成meshinstance
@@ -181,6 +184,7 @@ func generate_object_Node3D(item, rootNode:Node3D):
 			if use_normal_material:
 				meshInstanceModel.material_override = normal_material
 		rootNode.add_child(importModel)
+		print("generate 3D:"+importModel.name)
 
 #1
 # 递归生成装配对象和装配模型树，并添加到tbScene中
@@ -229,6 +233,7 @@ func generate_Node3D_Tree(item, rootNode:Node3D):
 		rootNode.add_child(importModel)
 		assmblyObject2Node3D[int(item.id)] = importModel
 		importModel.visible = true
+	
 		var t:StaticBody3D = StaticBody3D.new()
 		var tt:CollisionShape3D = CollisionShape3D.new()
 		tt.shape = BoxShape3D.new()
@@ -238,6 +243,6 @@ func generate_Node3D_Tree(item, rootNode:Node3D):
 		
 		print("_______")
 		print(meshInstanceModel.name)
-		print(meshInstanceModel.get_class())
+		print(meshInstanceModel.get_class())	
 		#meshInstanceModel.visible = false
 

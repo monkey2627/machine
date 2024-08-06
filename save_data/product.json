@@ -1,0 +1,32 @@
+{
+	"WorkStep_to_therblig": {
+
+	},
+	"assembly_objects": [
+
+	],
+	"assembly_objects_models": [
+		{
+			"id": 0,
+			"name": "装配对象模型1-书桌",
+			"path": "Model\\AssemblyModel\\zzt5.glb"
+		}
+	],
+	"date": "2023-07-07",
+	"desc": "哈哈哈",
+	"gongyi": {
+		"desc": "工艺的描述",
+		"gongbu_list": [
+
+		],
+		"gongxu_list": [
+
+		],
+		"name": "装配工艺",
+		"type": 2
+	},
+	"modifydate": "2023-07-07",
+	"modifyperson": "wzj",
+	"name": "产品",
+	"owner": "wzj"
+}

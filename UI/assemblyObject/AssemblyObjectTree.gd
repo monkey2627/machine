@@ -62,6 +62,8 @@ func update_assembly_object_tree():
 		#构建树节点	
 		varObj.node = tree.create_item(parent_node)
 		varObj.node.set_text(0, varObj.name)
+		print("xixiixi_____")
+		print(varObj)
 		varObj.node.set_metadata(0, varObj)
 
 
@@ -72,6 +74,9 @@ func _on_item_selected():
 		return
 	var select_tree_node = get_selected()
 	var list_node = select_tree_node.get_metadata(0)
+	print("________")
+	print(list_node)
+	print("_____显示模型show_assembly_obj")
 	$"../../../../../HSplitContainer/VBoxContainer/TabContainer/模型显示".show_assembly_obj(list_node)
 	pass
 
@@ -160,9 +165,15 @@ func copy_assembly_object():
 	newItem.color = list_node.color
 	newItem.pos_matrix = list_node.pos_matrix
 	newItem.benchmark = list_node.benchmark
+	newItem.position = list_node.position 
+	newItem.rotation = list_node.rotation
+	newItem.scale = list_node.scale
+	newItem.modelLink = list_node.modelLink
+	
 	assemblyObjectList.append(newItem)
 	update_assembly_object_tree()
 	close_assObjPopWin()
+
 
 
 #删除树节点接口

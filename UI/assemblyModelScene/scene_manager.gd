@@ -3,7 +3,7 @@ extends Node3D
 var meshInstance
 var modelNode
 var normal_material = load("res://Model/Material/normal_material.tres")
-
+@onready var Camera  = $Camera3D
 func _ready():
 	pass
 
@@ -55,6 +55,7 @@ func change_scene(node):
 	node.scale = Vector3(scale, scale, scale)
 	node.position = (-aabb.position - aabb.size / 2) * scale
 	node.position = Vector3(0,0.0,0)
+	Camera.position = Vector3(0,0,1)
 	#print(node.name)
 	#var now = ViewportTexture.new()
 	#now.viewport_path = "ColorRect/VSplitContainer/HSplitContainer2/HSplitContainer/VBoxContainer/TabContainer/模型显示/SubViewport"

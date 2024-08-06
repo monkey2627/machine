@@ -6,7 +6,7 @@ var testmodelPath = "res://Model/AssemblyModel/扳手工具.obj"
 #var model3 = preload("res://Model/AssemblyModel/新扳手.obj")
 @onready var scene = $SubViewport/Node3D
 @onready var assemblyProductClass = $"../../../../VSplitContainer/VBoxContainer2/BoxContainer/assemblyProduct"
-
+@onready var camera3D = $SubViewport/Node3D/Camera3D
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -47,7 +47,29 @@ func show_assembly_obj(item):
 	# 将生成的场景树添加到tbScene
 	scene.change_scene(rootNode)
 
-
+func _input(event):
+	if event is InputEventKey:
+		match event.keycode:
+			KEY_W:
+				scene.Camera.position += Vector3(0,0,-0.3)
+			
+			KEY_S:
+				scene.Camera.position += Vector3(0,0,0.3)
+			
+			KEY_A:
+				scene.Camera.position += Vector3(-0.3,0,0)
+				#camera3D._a = event.pressed
+			KEY_D:
+				scene.Camera.position += Vector3(0.3,0,0)
+				
+			KEY_Q:
+				scene.Camera.position += Vector3(0,0.3,0)
+				
+			KEY_E:
+				scene.Camera.position += Vector3(0,-0.3,0)
+				
+#
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	pass
+

@@ -15,7 +15,7 @@ func _ready():
 	product.modifyperson = "wzj"
 
 	pass # Replace with function body.
-
+#用在load里
 func get_allData():
 	
 	#product.id = 1
@@ -33,7 +33,7 @@ func get_allData():
 	
 	product.assembly_objects = $"ColorRect/VSplitContainer/HSplitContainer2/VSplitContainer/VBoxContainer2/TabContainer/产品管理/Tree".assemblyObjectList
 	product.assembly_objects_models = $"ColorRect/VSplitContainer/HSplitContainer2/VSplitContainer/VBoxContainer/VBoxContainer/TabContainer/装配对象3D模型/ItemList".model
-
+#用在save里
 func set_allData():
 	$"ColorRect/VSplitContainer/HSplitContainer2/VSplitContainer/VBoxContainer2/TabContainer/工艺管理/Tree".set_gongyi(product.gongyi)
 	var work_step2therblig = {}

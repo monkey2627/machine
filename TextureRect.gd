@@ -37,21 +37,11 @@ func _process(delta: float) -> void:
 	if Input.is_action_pressed("quit"):
 		Axis.visible = false
 		selected_object = null
-	if Input.is_action_pressed("right"):
-		if first_ == false:
-			var mouse_pos:Vector2 = get_viewport().get_mouse_position()
-			var start = camera.project_ray_origin(mouse_pos)
-			before_ = mouse_pos
-			first_ = true
-		else:
-			var mouse_pos:Vector2 = get_viewport().get_mouse_position()
-			var start = camera.project_ray_origin(mouse_pos)
-			now_ = mouse_pos
-			if (now_.x - before_.x) <0:
-				camera.rotation += Vector3(0,0.05,0)
-			else:
-				camera.rotation += Vector3(0,-0.05,0)
-			before_ = now_
+	
+	if Input.is_action_pressed("cameraRotatel"):
+		camera.rotation += Vector3(0,0.05,0)
+	if Input.is_action_pressed("camraRotater"):
+		camera.rotation += Vector3(0,-0.05,0)
 			
 	timer += 1
 	if timer > 100:
