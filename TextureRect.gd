@@ -29,6 +29,10 @@ var first_ = false
 var before_
 var now_
 @onready var Axis:Object = $"../../../../../../../../../../axis"
+var center
+var x_li
+var y_li
+var z_li
 func _ready() -> void:
 	pass # Replace with function body.
 
@@ -62,7 +66,8 @@ func _process(delta: float) -> void:
 				selected_object = col
 				timer = 0
 				Axis.visible = true
-				Axis.position = selected_object.get_parent().get_parent().position
+				Axis.position = ray_cast_3d.get_collision_point()
+				center = Axis.position
 				print(selected_object.get_parent().name)
 			elif  col == null:
 				selected_object = null
@@ -73,7 +78,6 @@ func _process(delta: float) -> void:
 		#如果鼠标左键点击并且已有选中物体
 		if Input.is_action_pressed("drag") :
 			axis = ray_cast_3d.get_collider()
-			
 			if(axis == null):
 				print("you did not click on the obj")
 			elif axis != null && axis.name == "x":
@@ -89,7 +93,7 @@ func _process(delta: float) -> void:
 					move = 0
 					now = ray_cast_3d.get_collision_point() 
 					Axis.position +=  Vector3((now-last).x,0,0) 
-					selected_object.get_parent().position += Vector3((now-last).x*200,0,0) 
+					selected_object.get_parent().position += Vector3((now-last).x*400,0,0) 
 					last = now
 			elif axis != null && axis.name == "y":
 				if move >= 10:
@@ -103,7 +107,7 @@ func _process(delta: float) -> void:
 					move = 0
 					now = ray_cast_3d.get_collision_point() 
 					Axis.position +=  Vector3(0,(now-last).y,0) 
-					selected_object.get_parent().position += Vector3(0,(now-last).y*200,0) 
+					selected_object.get_parent().position += Vector3(0,(now-last).y*400,0) 
 					last = now
 			elif axis != null && axis.name == "z":
 				if move >= 10:
@@ -117,7 +121,7 @@ func _process(delta: float) -> void:
 					move = 0
 					now = ray_cast_3d.get_collision_point() 
 					Axis.position +=  Vector3(0,0,(now-last).z) 
-					selected_object.get_parent().position += Vector3(0,0,(now-last).z*200) 
+					selected_object.get_parent().position += Vector3(0,0,(now-last).z*400) 
 					last = now
 			elif  axis != null:
 				selected_object = axis
